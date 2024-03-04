@@ -82,12 +82,16 @@ body {
   right: -100%;
   display: flex;
   align-items: center;
-  justify-content: center;
   transition: right 0.5s ;
 }
 
 .ham-content-text {
   padding-bottom: 100px;
+  opacity: 1;
+  position: absolute;
+  left: 50%; 
+  transform: translate(-50%, 0);
+  transition: all 0.2s;
 }
 
 .ham-content-text > * {
@@ -191,6 +195,12 @@ body {
   visibility: hidden;
 }
 
-.hidden {
-  visibility: hidden;
+.hidden1 {
+  opacity: 0 !important;
+  left: 70%;
+}
+
+.hidden2 {
+  opacity: 0 !important;
+  left: 20%;
 }

@@ -20,20 +20,20 @@
         <div></div>
       </div>
       <div id="ham-content">
-        <div class="ham-content-text">
+        <div id="normal-content" class="ham-content-text">
           <p class="underline-animation">About Me</p>
           <p class="underline-animation">Projects</p>
-          <div class="ham-content-text" class="hidden">
-            <p class="underline-animation">OOP</p>
-            <p class="underline-animation">Arrays</p>
-            <p class="underline-animation">Arraylists</p>
-            <p class="underline-animation">Searching</p>
-            <p class="underline-animation">Sorting</p>
-            <p class="underline-animation">Recursion</p>
-            <p class="underline-animation">Back</p>
-          </div>
-          <p class="underline-animation">Lessons</p>
+          <p class="underline-animation" onclick="toggle_lessons()">Lessons</p>
           <p class="underline-animation">Bibliography</p>
+        </div>
+        <div id="lesson-content" class="ham-content-text hidden1">
+          <p class="underline-animation">OOP</p>
+          <p class="underline-animation">Arrays</p>
+          <p class="underline-animation">Arraylists</p>
+          <p class="underline-animation">Searching</p>
+          <p class="underline-animation">Sorting</p>
+          <p class="underline-animation">Recursion</p>
+          <p class="underline-animation" onclick="toggle_lessons()">Back</p>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
           <pre id="typing">A </pre>
           <div id="cursor" class="cursor-fade"></div>
         </div>
-        <p id="view-more" onclick="toggle_ham()">View More</p>
+        <p id="view-more" onclick="open_ham()">View More</p>
       </div>
     </div>
   </body>
