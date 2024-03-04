@@ -12,6 +12,7 @@
 
 * {
   font-family: "Montserrat";
+  user-select: none;
 }
 
 body {
