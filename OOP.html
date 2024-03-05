@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Portfolio</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="description" content="" />
+        <!-- <link rel="icon" href="favicon.png"> -->
+        <link rel='stylesheet' href='OOP.css'>
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atom-one-dark.min.css">
+
+    </head>
+    <body>
+        <div id="nav">
+            <p id="home">Home</p>
+            <div id="darken" onclick="close_ham()"></div>
+            <div id="ham" onclick="toggle_ham()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div id="ham-content">
+                <div id="normal-content" class="ham-content-text">
+                    <p class="underline-animation">About Me</p>
+                    <p class="underline-animation">Projects</p>
+                    <p class="underline-animation" onclick="toggle_lessons()">Lessons</p>
+                    <p class="underline-animation">Bibliography</p>
+                </div>
+                <div id="lesson-content" class="ham-content-text hidden1">
+                    <p class="underline-animation">OOP</p>
+                    <p class="underline-animation">Arrays</p>
+                    <p class="underline-animation">Arraylists</p>
+                    <p class="underline-animation">Searching</p>
+                    <p class="underline-animation">Sorting</p>
+                    <p class="underline-animation">Recursion</p>
+                    <p class="underline-animation" onclick="toggle_lessons()">Back</p>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div id="content">
+                <p class="title">OOP</p>
+                <p class="body-text">Bozo</p>
+                <pre><code class="language-java">
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println("Hello World");
+        }
+    }
+                </code></pre>
+            </div>
+        </div>
+        <script src="OOP.js"></script>
+    </body>
+</html>
