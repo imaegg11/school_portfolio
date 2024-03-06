@@ -1,3 +1,7 @@
+let goTo = (link) => {
+    location.href = link;
+}
+
 
 let toggle_ham = () => {
     let ham_content = document.getElementById("ham-content");

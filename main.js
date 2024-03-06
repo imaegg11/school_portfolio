@@ -1,9 +1,5 @@
 document.getElementById("page-container").classList.remove("hide");
 
-let goTo = (link) => {
-
-}
-
 const titles = ["student", "programmer", "procrastinator"];
 
 /*

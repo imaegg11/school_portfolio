@@ -20,7 +20,8 @@ body {
 }
 
 code > * {
-  font-family: 'JetBrains Mono' !important; 
+  font-family: 'JetBrains Mono' !important;
+  user-select: text !important;
 }
 
 code {
@@ -29,8 +30,17 @@ code {
   margin: auto;
   background-color: #191b1c !important;
   border-radius: 12px;
-  padding: 3% !important;
+  padding: 2% 3% 2% 3% !important;
   color: var(--white);
+  user-select: text !important;
+}
+
+hr {
+    height: 1px;
+    border-width:0;
+    color:gray;
+    background-color:gray;
+    margin: 1% auto;
 }
 
 #content {
@@ -49,4 +59,17 @@ code {
 
 .number {
   color: grey !important;
+  user-select: none !important;
+}
+
+.file-name {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+}
+
+.java-icon {
+    color: grey;
+    height: 1.2rem;
+    width: 1.2rem;
 }

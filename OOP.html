@@ -15,7 +15,7 @@
     </head>
     <body>
         <div id="nav">
-            <p id="home">Home</p>
+            <p id="home" onclick="goTo('index.html')">Home</p>
             <div id="darken" onclick="close_ham()"></div>
             <div id="ham" onclick="toggle_ham()">
                 <div></div>
@@ -23,14 +23,14 @@
                 <div></div>
             </div>
             <div id="ham-content">
-                <div id="nav-home" class="ham-content-text">
+                <div id="nav-home" class="ham-content-text">    
                     <p class="underline-animation">About Me</p>
                     <p class="underline-animation">Projects</p>
                     <p class="underline-animation" onclick="go_forward('lessons')">Lessons</p>
                     <p class="underline-animation">Bibliography</p>
                 </div>
                 <div id="nav-lessons" class="ham-content-text fade-right">
-                    <p class="underline-animation">OOP</p>
+                    <p class="underline-animation" onclick="goTo('OOP.html')">OOP</p>
                     <p class="underline-animation">Arrays</p>
                     <p class="underline-animation">Arraylists</p>
                     <p class="underline-animation">Searching</p>
@@ -44,11 +44,7 @@
             <div id="content">
                 <p class="title">OOP</p>
                 <p class="body-text">Bozo</p>
-                <pre><code class="language-java">public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World");
-    }
-}</code></pre>
+                <pre><code class="language-java"></code></pre>
             </div>
         </div>
         <script src="nav.js"></script>
