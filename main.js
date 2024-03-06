@@ -15,40 +15,40 @@ let typing = (n) => {
     const title = titles[n];
     let t = document.getElementById("typing");
     let i = 0;
-    let typingAnimation = () => {
+    let typing_animation = () => {
         if (i <= title.length) {
             t.innerText = "A " + title.substring(0, i);
             i++;
             setTimeout(() => {
-                requestAnimationFrame(typingAnimation);
+                requestAnimationFrame(typing_animation);
             }, 100 + Math.random() * 10)
         } else {
             document.getElementById("cursor").classList.toggle("cursor-fade");
         }
     }
-    requestAnimationFrame(typingAnimation);
+    requestAnimationFrame(typing_animation);
 }
 
 let deleting = () => {
     document.getElementById("cursor").classList.toggle("cursor-fade");
     let t = document.getElementById("typing");
-    let deletingAnimation = () => {
+    let deleting_animation = () => {
         let text = t.innerText;
         if (text != "A ") {
             t.innerText = text.substring(0, text.length - 1);
             setTimeout(() => {
-                requestAnimationFrame(deletingAnimation);
+                requestAnimationFrame(deleting_animation);
             }, 60 + Math.random() * 10)
         } else if (text == "A ") {
             document.getElementById("cursor").classList.toggle("cursor-fade");
         }
     }
 
-    requestAnimationFrame(deletingAnimation);
+    requestAnimationFrame(deleting_animation);
 }
 
 let index = 0;
-let typingText = () => {
+let typing_text = () => {
     let text = document.getElementById("typing").innerText;
     let timeOut = 2000;
     if (text != "A ") {
@@ -60,11 +60,11 @@ let typingText = () => {
         timeOut = titles[index].length * 110 + 1500;
     }
     setTimeout(() => {
-        requestAnimationFrame(typingText);
+        requestAnimationFrame(typing_text);
     }, timeOut)
 }
 
-requestAnimationFrame(typingText);
+requestAnimationFrame(typing_text);
 
 
 
