@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Portfolio</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="" />
     <!-- <link rel="icon" href="favicon.png"> -->
     <link rel='stylesheet' href='index.css'>
+    <link rel='stylesheet' href='nav.css'>
+</head>
+
+<body>
+    <div id="page-container" class="hide">
+        <div id="nav">
+            <p id="home">Home</p>
+            <div id="darken" onclick="close_ham()"></div>
+            <div id="ham" onclick="toggle_ham()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div id="ham-content">
+                <div id="nav-home" class="ham-content-text">
+                    <p class="underline-animation">About Me</p>
+                    <p class="underline-animation">Projects</p>
+                    <p class="underline-animation" onclick="go_forward('lessons')">Lessons</p>
+                    <p class="underline-animation">Bibliography</p>
+                </div>
+                <div id="nav-lessons" class="ham-content-text fade-right">
+                    <p class="underline-animation">OOP</p>
+                    <p class="underline-animation">Arrays</p>
+                    <p class="underline-animation">Arraylists</p>
+                    <p class="underline-animation">Searching</p>
+                    <p class="underline-animation">Sorting</p>
+                    <p class="underline-animation">Recursion</p>
+                    <p class="underline-animation" onclick="go_back()">Back</p>
+                </div>
+            </div>
+        </div>
+        <div id="front-page">
+            <div id="front-page-text">
+                <p id="hello-text">Hello I'm Alex</p>
+                <div id="typing-cont">
+                    <pre id="typing">A </pre>
+                    <div id="cursor" class="cursor-fade"></div>
+                </div>
+                <p id="view-more" onclick="open_ham()">View More</p>
+            </div>
+        </div>
+    </div>
+    <noscript>
+        <p style="font-size: 4rem; width: 100vw; text-align: center;">Turn on Javascript. Website will not function
+            otherwise.</p>
+    </noscript>
     <script src="main.js"></script>
-  </head>
-  <body>
-    <div id="nav">
-      <p id="home">Home</p>
-      <div id="darken" onclick="close_ham()"></div>
-      <div id="ham" onclick="toggle_ham()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div id="ham-content">
-        <div id="normal-content" class="ham-content-text">
-          <p class="underline-animation">About Me</p>
-          <p class="underline-animation">Projects</p>
-          <p class="underline-animation" onclick="toggle_lessons()">Lessons</p>
-          <p class="underline-animation">Bibliography</p>
-        </div>
-        <div id="lesson-content" class="ham-content-text hidden1">
-          <p class="underline-animation">OOP</p>
-          <p class="underline-animation">Arrays</p>
-          <p class="underline-animation">Arraylists</p>
-          <p class="underline-animation">Searching</p>
-          <p class="underline-animation">Sorting</p>
-          <p class="underline-animation">Recursion</p>
-          <p class="underline-animation" onclick="toggle_lessons()">Back</p>
-        </div>
-      </div>
-    </div>
-    <div id="front-page">
-      <div id="front-page-text">
-        <p id="hello-text">Hello I'm Alex</p>
-        <div id="typing-cont">
-          <pre id="typing">A </pre>
-          <div id="cursor" class="cursor-fade"></div>
-        </div>
-        <p id="view-more" onclick="open_ham()">View More</p>
-      </div>
-    </div>
-  </body>
+    <script src="nav.js"></script>
+</body>
 </html>
