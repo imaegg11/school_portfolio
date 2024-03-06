@@ -1,12 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 :root {
-    --white: #d8dee9;
-    --black: #100f10;
-    --dark-grey: #201e21;
-    --light-blue: #57a0d9;
-    --blue: #1964c8;
-    --lighter-blue: #61afef;
-    --bright-blue: #51acff;
+  --white: #d8dee9;
+  --black: #100f10;
+  --dark-grey: #201e21;
+  --light-blue: #57a0d9;
+  --blue: #1964c8;
+  --lighter-blue: #61afef;
+  --bright-blue: #51acff;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('assets/Montserrat-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('assets/JetBrainsMono-Regular.ttf') format("truetype");
 }
 
 * {
@@ -19,13 +28,13 @@ body {
   background-color: var(--black);
 }
 
-code > * {
+code>* {
   font-family: 'JetBrains Mono' !important;
   user-select: text !important;
 }
 
 code {
-  font-family: 'JetBrains Mono' !important; 
+  font-family: 'JetBrains Mono' !important;
   width: 80%;
   margin: auto;
   background-color: #191b1c !important;
@@ -36,25 +45,27 @@ code {
 }
 
 hr {
-    height: 1px;
-    border-width:0;
-    color:gray;
-    background-color:gray;
-    margin: 1% auto;
+  height: 1px;
+  border-width: 0;
+  color: gray;
+  background-color: rgb(102, 101, 101);
+  margin: 1% auto;
 }
 
 #content {
   width: 80%;
+  margin-top: 4rem;
 }
 
 .title {
   font-size: 3rem;
-  color: var(--white); 
+  color: var(--white);
 }
 
 .body-text {
   font-size: 1.3rem;
   color: var(--white);
+  user-select: text;
 }
 
 .number {
@@ -63,13 +74,18 @@ hr {
 }
 
 .file-name {
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
+  height: 1rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.java-icon {
-    color: grey;
-    height: 1.2rem;
-    width: 1.2rem;
+.file-name>* {
+  margin: 0 0.5rem;
+}
+
+.clipboard-svg {
+  width: 1.05rem;
+  height: 1.05rem;
 }
