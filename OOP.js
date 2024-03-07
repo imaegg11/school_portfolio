@@ -37,7 +37,9 @@ let add_numbers = async () => {
         let obj = await hljs.highlight("java", new_text.join("\n"));
         e.innerHTML = obj.value;
     }
+    
     let numbers = document.getElementsByClassName("hljs-number");
+
     for (let number of numbers) {
         if (/^\d+\.$/.test(number.innerText)) {
             number.classList.add("number");
@@ -54,6 +56,7 @@ let add_numbers = async () => {
 
                 parent = parent.childNodes[0];
                 let clipboard_child = document.createElement("div");
+                clipboard_child.classList.add("clipboard");
                 clipboard_child.style.cursor = "pointer";
                 clipboard_child.innerHTML = clipboard;
                 clipboard_child.addEventListener("click", (event) => {
