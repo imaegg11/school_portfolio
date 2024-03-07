@@ -24,7 +24,7 @@
 	position: fixed;
 	top: 0;
 	width: 100vw;
-	/*   background-color: var(--dark-grey); */
+	  background-color: var(--black);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
