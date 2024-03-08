@@ -54,6 +54,7 @@ hr {
 
 #content {
     width: 80%;
+    margin: auto;
     margin-top: 4rem;
 }
 
@@ -90,3 +91,24 @@ hr {
     height: 1.05rem;
 }
 
+#back-to-top {
+    font-size: 1.05rem;
+    cursor: pointer;
+    color: var(--white);
+    width: max-content;
+    margin: auto;
+    margin-bottom: 4%;
+    margin-top: 4%;
+    display: grid;
+    place-items: center;
+}
+
+#top-svg  {
+    top: 0.5rem;
+    transition: top 0.4s;
+    position: relative;
+}
+
+#back-to-top:hover > #top-svg {
+    top: 0;
+}
