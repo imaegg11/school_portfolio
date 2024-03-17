@@ -10,12 +10,12 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('assets/Montserrat-Regular.ttf') format("truetype");
+    src: url('../assets/Montserrat-Regular.ttf') format("truetype");
 }
 
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('assets/JetBrainsMono-Regular.ttf') format("truetype");
+    src: url('../assets/JetBrainsMono-Regular.ttf') format("truetype");
 }
 
 * {
@@ -111,4 +111,8 @@ hr {
 
 #back-to-top:hover > #top-svg {
     top: 0;
+}
+
+.hide {
+    display: none !important;
 }

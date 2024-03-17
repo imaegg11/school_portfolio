@@ -2,7 +2,6 @@ let goTo = (link) => {
     location.href = link;
 }
 
-
 let toggle_ham = () => {
     let ham_content = document.getElementById("ham-content");
     if (ham_content.classList.contains("opened")) {
@@ -17,7 +16,7 @@ let open_ham = () => {
     children[0].classList.add("top");
     children[1].classList.add("fade");
     children[2].classList.add("bottom");
-
+    
     let ham_content = document.getElementById("ham-content");
     ham_content.style.right = "0%";
     ham_content.classList.add("opened")
@@ -31,25 +30,17 @@ let close_ham = () => {
     children[0].classList.remove("top");
     children[1].classList.remove("fade");
     children[2].classList.remove("bottom");
-
+    
     let ham_content = document.getElementById("ham-content");
     ham_content.style.right = "-100%";
     ham_content.classList.remove("opened")
-
+    
     let darken_div = document.getElementById("darken");
     darken_div.classList.remove("darken");
     
     reset();
 }
 
-// let toggle_lessons = () => {
-//     let normalContent = document.getElementById("normal-content");
-//     let lessonContent = document.getElementById("lesson-content");
-//     normalContent.classList.toggle("fade-right");
-//     lessonContent.classList.toggle("fade-left");
-// }
-
-let paths = ["nav-home"]
 
 let reset = () => {
     for (let i = 1; i < paths.length; i++) {
@@ -63,12 +54,12 @@ let reset = () => {
 
 let go_forward = (next_id) => {
     next_id = "nav-" + next_id;
-
+    
     let prev = document.getElementById(paths[paths.length - 1]);
     let next = document.getElementById(next_id);
     prev.classList.add("fade-left");
     next.classList.remove("fade-right");
-
+    
     paths.push(next_id);
     
 }
@@ -77,9 +68,53 @@ let go_back = () => {
     let curr = document.getElementById(paths[paths.length - 1]);
     let next = document.getElementById(paths[paths.length - 2]);
     console.log(curr, next);
-
+    
     curr.classList.add("fade-right");
     next.classList.remove("fade-left")
-
+    
     paths.pop();
 }
+
+let create_hamburger = (hamburger_content) => {
+    let hamburger_content_parent = document.getElementById("ham-content");
+    
+    for (let key of Object.keys(hamburger_content)) {
+        let sub_pages = hamburger_content[key];
+        let child = document.createElement("div");
+        
+        child.id = key;
+        child.classList.add("ham-content-text");
+        if (key != "nav-home") {
+            child.classList.add("fade-right");
+        }
+        
+        for (let sub_page of sub_pages) {
+            let page = document.createElement("p");
+            page.classList.add("underline-animation");
+            page.innerText = sub_page[0];
+            
+            if (sub_page.length > 1) {
+                page.addEventListener("click", (e) => {
+                    sub_page[1](sub_page[2])
+                });
+            } else if (sub_page[0] == "Back") {
+                page.addEventListener("click", (e) => {
+                    go_back();
+                });
+            }
+            
+            child.appendChild(page);
+        }
+        
+        hamburger_content_parent.appendChild(child);
+    }    
+}
+
+let paths = ["nav-home"]
+const hamburger_content = {
+    "nav-home": [["About Me"], ["Projects"], ["Lessons", go_forward, "lessons"], ["Bibliography"]],
+    "nav-lessons": [["OOP", goTo, "OOP.html"], ["Arrays"], ["Arraylists"], ["Searching"], ["Sorting"], ["Recursion"], ["Back"]]
+}
+
+create_hamburger(hamburger_content);
+
