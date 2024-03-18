@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title></title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="description" content="" />
+        <!-- <link rel="icon" href="favicon.png"> -->
+        <link rel='stylesheet' href="code/nav.css">
+        <link rel='stylesheet' href="code/projects.css">
+        <script src="assets/data.js"></script>
+    </head>
+    <body>
+        <div id="nav">
+            <p id="home" onclick="goTo('index.html')">Home</p>
+            <div id="darken" onclick="close_ham()"></div>
+            <div id="ham" onclick="toggle_ham()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div id="ham-content"></div>
+        </div>
+        <p id="title">Projects</p>
+        <div id="content">
+            <div class="project" style="--yes: 3">
+                <img src=""></img>
+                <p class="project-title">Portfolio</p>
+            </div>
+            <div class="project" style="--yes: 1">
+                <img src=""></img>
+                <p class="project-title">Portfolio</p>
+            </div>
+            <div class="project" style="--yes: 2">
+                <img src=""></img>
+                <p class="project-title">Portfolio</p>
+            </div>
+            <div class="project" style="--yes: 3">
+                <img src=""></img>
+                <p class="project-title">Portfolio</p>
+            </div>
+        </div>
+        <script src="code/nav.js"></script>
+    </body>
+</html>

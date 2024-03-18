@@ -1,7 +1,7 @@
 import shutil, os
 
 files = ["OOP.html", "Array.html", "Arraylists.html", "Searching.html", "Sorting.html", "Recursion.html"]
-ignoreList = ["index.html"]
+ignoreList = ["index.html", "projects.html"]
 
 templateSource = "code\\template.html"
 
