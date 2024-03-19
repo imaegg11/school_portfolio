@@ -26,10 +26,9 @@ body {
     margin: auto;
     margin-top: 4rem;
     width: 80%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 8px;
-    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 #title {
@@ -40,9 +39,8 @@ body {
 }
 
 .project {
-    width: calc(var(--yes) * 300px + (var(--yes) - 1) * 12px);
-    /* width: 300px; */
-    height: 300px; 
+    grid-column: span var(--span);
+    height: 300px;
     background-color: rgb(23, 23, 23);
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.1);
@@ -51,7 +49,13 @@ body {
 }
 
 .project-title {
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: var(--white);
-    margin-left: 4%;
+    margin-left: 1rem;
+}
+
+.project-text {
+    color: var(--white);
+    margin: 0 1rem;
+    font-size: 1rem;
 }
