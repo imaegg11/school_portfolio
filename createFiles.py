@@ -1,5 +1,4 @@
 import shutil, os
-dir_path = os.path.dirname(os.path.realpath(__file__))
 
 files = ["OOP.html", "Array.html", "Arraylists.html", "Searching.html", "Sorting.html", "Recursion.html"]
 ignoreList = ["index.html", "projects.html"]
