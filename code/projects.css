@@ -28,7 +28,7 @@ body {
     width: 80%;
     display: grid;
     gap: 8px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
 }
 
 #title {
@@ -46,16 +46,25 @@ body {
     border-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     border-width: 2px;
+    display: flex;
 }
 
 .project-title {
     font-size: 1.25rem;
     color: var(--white);
+}
+
+.project-about {
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.project-img {
+    width: max(240px, 10%);
+    margin: auto 0 auto 1rem;
     margin-left: 1rem;
 }
 
 .project-text {
-    color: var(--white);
-    margin: 0 1rem;
-    font-size: 1rem;
+    margin: 2rem 1rem;
 }
