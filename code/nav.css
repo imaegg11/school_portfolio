@@ -92,10 +92,10 @@
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%, 0);
-	transition: all 0.2s;
+	transition: opacity 0.2s, left 0.2s;
 }
 
-.ham-content-text>* {
+.ham-content-text > * {
 	font-size: 1.5rem;
 	cursor: pointer;
 	margin-right: auto;
@@ -141,12 +141,16 @@
 	visibility: hidden;
 }
 
+/* https://stackoverflow.com/questions/33264310/in-html-can-i-disable-user-interaction-with-an-entire-dom-sub-tree */
+
 .fade-right {
 	opacity: 0 !important;
 	left: 70%;
+	pointer-events: none;
 }
 
 .fade-left {
 	opacity: 0 !important;
 	left: 20%;
+	pointer-events: none;
 }

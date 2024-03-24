@@ -23,8 +23,7 @@ body {
 }
 
 #content {
-    margin: auto;
-    margin-top: 4rem;
+    margin: 4rem auto;
     width: 80%;
     display: grid;
     gap: 8px;
@@ -39,7 +38,6 @@ body {
 }
 
 .project {
-    grid-column: span var(--span);
     height: 300px;
     background-color: rgb(23, 23, 23);
     border-style: solid;
@@ -52,6 +50,28 @@ body {
 .project-title {
     font-size: 1.25rem;
     color: var(--white);
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.span-1 {
+    display: grid;
+    grid-template-rows: 1.5fr 1fr;
+}
+
+.span-1 > .project-img {
+    width: min(140px, 35%);
+    margin: auto;
+}
+
+.span-1 .project-title {
+    margin-top: 0;
+}
+
+.span-1 .project-text {
+    margin-top: 0;
 }
 
 .project-about {
