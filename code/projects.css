@@ -13,13 +13,10 @@
     src: url('../assets/Montserrat-Regular.ttf') format("truetype");
 }
 
-* {
-    font-family: "Montserrat";
-}
-
 body {
     margin: 0;
     background-color: var(--black);
+    font-family: "Montserrat";
 }
 
 #content {

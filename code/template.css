@@ -18,14 +18,11 @@
     src: url('../assets/JetBrainsMono-Regular.ttf') format("truetype");
 }
 
-* {
-    font-family: "Montserrat";
-    user-select: none;
-}
-
 body {
     margin: 0;
     background-color: var(--black);
+    font-family: "Montserrat";
+    user-select: none;
 }
 
 code>* {
@@ -42,6 +39,7 @@ code {
     padding: 2% 3% 2% 3% !important;
     color: var(--white);
     user-select: text !important;
+    overflow-x: intial !important;
 }
 
 hr {
@@ -56,6 +54,10 @@ hr {
     width: 80%;
     margin: auto;
     margin-top: 4rem;
+}
+
+.code_cont {
+    overflow-x: auto;
 }
 
 .title {

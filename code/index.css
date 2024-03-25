@@ -1,11 +1,11 @@
 :root {
-  --white: #d8dee9;
-  --black: #100f10;
-  --dark-grey: #201e21;
-  --light-blue: #57a0d9;
-  --blue: #1964c8;
-  --lighter-blue: #61afef;
-  --bright-blue: #51acff;
+    --white: #d8dee9;
+    --black: #100f10;
+    --dark-grey: #201e21;
+    --light-blue: #57a0d9;
+    --blue: #1964c8;
+    --lighter-blue: #61afef;
+    --bright-blue: #51acff;
 }
 
 /* 
@@ -15,99 +15,100 @@
 */
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../assets/Montserrat-Regular.ttf') format("truetype");
-}
-
-* {
-  font-family: "Montserrat";
-  user-select: none;
+    font-family: 'Montserrat';
+    src: url('../assets/Montserrat-Regular.ttf') format("truetype");
 }
 
 body {
-  margin: 0;
+    font-family: "Montserrat";
+    user-select: none;
+}
+
+body {
+    margin: 0;
 }
 
 /*
-    https://developer.mozilla.org/en-US/docs/Web/CSS/background
-  */
+  https://developer.mozilla.org/en-US/docs/Web/CSS/background
+*/
 
 .underline-animation {
-  transition: background-size 0.3s;
-  background-size: 0% 1px;
-  background-position-y: 1.17em;
-  background-position-x: 0%;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(var(--white), var(--white));
+    transition: background-size 0.3s;
+    background-size: 0% 1px;
+    background-position-y: 1.17em;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(var(--white), var(--white));
 }
 
 .underline-animation:hover {
-  background-size: 100% 1px;
+    background-size: 100% 1px;
 }
 
 #front-page {
-  height: 100vh;
-  width: 100%;
-  background-color: var(--black);
+    height: 100vh;
+    width: 100%;
+    background-color: var(--black);
 }
 
 #front-page-text {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
 
 #hello-text {
-  font-size: 3.5rem;
-  color: var(--white);
-  margin: 0 0 0.3em 0;
+    font-size: 3.5rem;
+    color: var(--white);
+    margin: 0 0 0.3em 0;
 }
 
 #view-more {
-  font-size: 1rem;
-  color: var(--white);
-  cursor: pointer;
+    font-size: 1rem;
+    color: var(--white);
+    cursor: pointer;
 }
 
 #typing-cont {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 #typing {
-  font-size: 2rem;
-  color: var(--white);
-  margin: 0;
-  margin-right: 0.5%;
+    font-family: "Montserrat";
+    font-size: 2rem;
+    color: var(--white);
+    margin: 0;
+    margin-right: 0.5%;
 }
 
 #cursor {
-  height: 100%;
-  width: 3px;
-  background-color: var(--white);
+    height: 100%;
+    width: 3px;
+    background-color: var(--white);
 }
 
 .cursor-fade {
-  animation: none;
-  animation: fade 1s infinite;
+    animation: none;
+    animation: fade 1s infinite;
 }
 
 @keyframes fade {
-  0% {
-    opacity: 0%
-  }
+    0% {
+        opacity: 0%
+    }
 
-  50% {
-    opacity: 100%
-  }
+    50% {
+        opacity: 100%
+    }
 
-  100% {
-    opacity: 0%
-  }
+    100% {
+        opacity: 0%
+    }
 }
 
 .hide {
-	display: none;
+    display: none;
 }

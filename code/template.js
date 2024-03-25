@@ -4,31 +4,35 @@ let checkmark = '<svg class="clipboard-svg" xmlns="http://www.w3.org/2000/svg" w
 
 let clipboard_codes = new Array();
 
-let add_numbers = async () => {
+let format_code = async () => {
     let code_blocks = document.getElementsByTagName("code");
     for (let i = 0; i < code_blocks.length; i++) {
         let e = code_blocks[i];
         let data = document.createAttribute("data-clipboard");
         let index = document.createAttribute("data-index");
+        let code_cont = document.createElement("div");
+        code_cont.classList.add("code_cont");
         index.value = i;
         data.value = e.innerText;
         e.classList.add("hljs");
         e.setAttributeNode(index);
         e.setAttributeNode(data);
         let new_text = e.innerText.split("\n").map((line, index) => {return `${index+1}.${line}`});
+        e.innerHTML = "";
         let obj = await hljs.highlight("java", new_text.join("\n"));
-        e.innerHTML = obj.value;
+        code_cont.innerHTML = obj.value;
+        e.appendChild(code_cont);
     }
-    
+
     let numbers = document.getElementsByClassName("hljs-number");
 
     for (let number of numbers) {
         if (/^\d+\.$/.test(number.innerText)) {
             number.classList.add("number");
             if (number.innerText == "1.") {
-                let parent = number.parentNode;
+                let parent = number.parentNode.parentNode;
                 // https://stackoverflow.com/questions/5882768/how-to-append-a-childnode-to-a-specific-position
-                parent.insertBefore(document.createElement("hr"), number);
+                parent.insertBefore(document.createElement("hr"), parent.firstChild);
                 let child = document.createElement("div");
                 let file_title = document.createElement("div")
                 child.classList.add("file-name");
@@ -105,7 +109,7 @@ let create = (items) => {
         }
     }
     
-    add_numbers();
+    format_code();
 }
 
 
