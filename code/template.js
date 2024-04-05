@@ -61,7 +61,7 @@ let format_code = async () => {
                 parent.appendChild(clipboard_child);
 
             }
-            number.innerText = number.innerText.substring(0, number.innerText.length-1) + "   ";
+            number.innerText = number.innerText.substring(0, number.innerText.length-1) + " ".repeat(5 - number.innerText.length);
         }
     }
 }

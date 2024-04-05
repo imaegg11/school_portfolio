@@ -32,8 +32,6 @@ code>* {
 
 code {
     font-family: 'JetBrains Mono' !important;
-    width: 80%;
-    margin: auto;
     background-color: #191b1c !important;
     border-radius: 12px;
     padding: 2% 3% 2% 3% !important;
@@ -118,4 +116,7 @@ hr {
 
 .hide {
     display: none !important;
+}
+.hljs-comment {
+    font-style: normal !important;
 }
