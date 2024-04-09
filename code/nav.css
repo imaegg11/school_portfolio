@@ -19,6 +19,9 @@
 	src: url('../assets/Montserrat-Regular.ttf') format("truetype");
 }
 
+* {
+	/* filter: saturate(200); */
+}
 
 #nav {
 	position: fixed;
