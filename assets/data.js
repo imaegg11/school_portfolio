@@ -68,7 +68,7 @@ window.OOP_Basic = [
             System.out.println(t.getColor()); 
         }
     }`, "Table.java"),
-    new item("body", "Attributes can be broken down into two different categories, instance and static. In java, an instance attributes is data that is localized to each object of the class. Each object will have it's own instance attributes, which can be different to another object's instance attributes. On the other hand, static attributes are the same throughout all objects of a class and every object has access to the same static attribute. There is only one copy of the static attribute throughout the entire object."),
+    new item("body", "Attributes can be broken down into two different categories, instance and static. In java, an instance attributes is data that is localized to each object of the class. Each object will have it's own instance attributes, which can be different to another object's instance attributes. On the other hand, static attributes are the same throughout all objects of a class and every object has access to the same static attribute. There is only one copy of each static attribute per class."),
     new item("code", `// Same Table class as before
     public static void main(String[] args) {
     
@@ -88,7 +88,38 @@ window.OOP_Basic = [
 ]
 
 window.OOP_Advanced = [
+    // https://www.geeksforgeeks.org/inheritance-in-java/
     new item("title", "Object Oriented Programming - Advanced"), 
     new item("body", "Classes can have additional functionality through inheritance and [INSERT POLYMORPHISM???]. Inheritance is created through a superclass (the parent) and subclass (the child). This creates an is-a relation between the subclass and the superclass. In the subclass, it inherits code from the superclass. Therefore, we can reuse code and share code that is common between multiple classes. For example, the Table class may be our subclass and a Furniture class may be our superclass. Thus, some code can be reused in the Table calss from the Furniture class."),
-    new item("body", "Inheritance in Java is created through the usuage of the extend keyword.")
+    new item("body", "Inheritance in Java is created through the usuage of the extends keyword."),
+    new item("code", `public class Table extends Furniture // Instead of just public class Table`, "Table.java"),
+    new item("body", "This way, our Table class can now access all of the protected/public attributes and methods of the parent class (Furniture). For example, if there was a clean() method within the Furniture class, the Table class now has access to the method. "),
+    new item("code", `// The "Parent" class 
+    public class Furniture {
+        private int dustAmount = 100;
+        
+        public void clean() {
+            dustAmount = 0;
+        }
+        
+        public int getDustAmount() {
+            return dustAmount;
+        }
+    }`, "Furniture.java"),
+    new item("body", "Now, the Table class has access to both the clean() method and the getDustAmount() method."),
+    new item("code", `// The main method within the Table class
+    public static void main(String[] args) {
+        // Our Table class which now extends the Furniture class 
+        Table t = new Table("red", "plastic");
+        // Our Table class now has access to both the getDustAmount() and clean method
+        System.out.println("Dust amount before cleaning: " + t.getDustAmount());
+        t.clean();
+        System.out.println("Dust amount after cleaning: " + t.getDustAmount());
+    }`, "Table.java"),
+    new item("body", "The subclass can also access the superclass through the keyword super. For example, super() will access the constructor of the super class.")
+]
+
+window.Arrays = [
+    new item("title", "Arrays"),
+    new item("body", "Arrays are used when we want to store multiple related values of the same data type into one variable. This allows easier declaration as well as looping through all the data. Each value (element) is stored at an index within the array that represents its position. The index is 0 based, meaning it starts from 0 instead of 1.")
 ]
