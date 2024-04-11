@@ -64,6 +64,11 @@ hr {
     color: var(--white);
 }
 
+.subtitle {
+    font-size: 1.75rem;
+    color: var(--white);
+}
+
 .body-text {
     font-size: 1.3rem;
     color: var(--white);

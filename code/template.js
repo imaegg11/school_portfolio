@@ -93,6 +93,13 @@ let create_body = (parent, content) => {
     parent.appendChild(child);
 }
 
+let create_subtitle = (parent, content) => {
+    let child = document.createElement("p");
+    child.classList.add("subtitle");
+    child.innerText = content;
+    parent.appendChild(child);
+}
+
 let create = (items) => {
 
     clipboard_codes = new Array(items.length);
@@ -106,6 +113,8 @@ let create = (items) => {
             create_title(parent, i.content);
         } else if (i.type == "body") {
             create_body(parent, i.content);
+        } else if (i.type == "subtitle") {
+            create_subtitle(parent, i.content);
         }
     }
     
