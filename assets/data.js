@@ -199,10 +199,59 @@ window.Arrays = [
     `, "Array.java")
 ]
 
-window.ArrayLists = [
+window.Arraylists = [
     // https://www.w3schools.com/java/java_arraylist.asp
+    // https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#add-int-E-
     new item("body", "ArrayLists"),
     new item("subtitle", "Lesson"),
     new item("body", "Arrays had a fixed size and cannot be modified after declaring the size. However, sometimes programmers need a flexible container for a bunch of elements. This is when ArrayLists come in. ArrayLists are like arrays (with different syntax) but their size can change."),
-    new item("body", "Before we can even use it, we must first import a package. For this, we will use import java.util.ArrayList. ")
+    new item("body", "Before we can even use it, we must first import a package. For this, we will use import java.util.ArrayList. To create a new ArrayList, we use the syntax ArrayList<dataType> variableName = new ArrayList<dataType>(). Note that primitive data types must use their wrapper class (e.g int and Integer). Once we have created an ArrayList, we can now add things to they ArrayList. To do that, we can use the syntax .add(element). We can also specify which location to add it to with the overloaded method using the syntax of .add(index, element). This will shift all the other elements after the index to the right. To obtain the element at a specified location, we use the .get(index) syntax. In order to change an element at a specific index, we use the .set(index, element)."),
+    new item("body", "Much like arrays, ArrayLists are also 0 based, meaning the first element in the ArrayList is at index 0. Similarlly, ArrayLists are also iterable over, meaning you can use a for loop to through the elements. You can use both a normal for loop utlising the .size() method to get the length of the array or using the for each loop mentioned in the arrays lesson. On top of that, ArrayLists can also be nested, creating nested ArrayLists."),
+    new item("code", `// Importing the package to use ArrayLists
+    import java.util.ArrayList; 
+    
+    public class ArrayLists {
+        public static void main(String[] args) {
+            // Creating an ArrayList with the wrapper class for int (Integer)
+            ArrayList<Integer> intArrayList = new ArrayList<Integer>();
+            
+            for (int i = 10; i > 0; i--) {
+                intArrayList.add(i); // Adding the numbers from 10 - 1 to the ArrayList 
+            }
+            
+            System.out.print("Before adding the 100: ");
+            // Looping through the ArrayList 
+            for (int i = 0; i < intArrayList.size(); i++) {
+                int element = intArrayList.get(i); // Getting the element at index i 
+                System.out.print(element + " ");
+            }
+            
+            intArrayList.add(3, 100); // Adds 100 at index 3 and shifts 7 - 1 to the right 
+            
+            System.out.print("\\nAfter adding the 100: ");
+            // Looping over using a for each loop 
+            for (int i : intArrayList) {
+                System.out.print(i + " ");
+            }
+            
+            // Nested ArrayLists 
+            ArrayList<ArrayList<String>> stringArrayList = new ArrayList<ArrayList<String>>();
+            
+        }
+    }
+    `, "ArrayLists.java")
+]
+
+window.BigO = [
+    // https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/
+    new item("title", "Big O Notation"), 
+    new item("body", "Wtf is this bs")
+]
+
+window.Searching = [
+    // https://www.geeksforgeeks.org/linear-search/
+    // https://www.geeksforgeeks.org/binary-search/
+    new item("title", "Searching"),
+    new item("subtitle", "Lesson"),
+    new item("body", "Sometimes programmers have to find an element within an array. To do that, they utlise searching algorithms, such as linear search or binary search. ")
 ]

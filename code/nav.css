@@ -90,7 +90,7 @@
 }
 
 .ham-content-text {
-	padding-bottom: 100px;
+	/* padding-bottom: 100px; */
 	opacity: 1;
 	position: absolute;
 	left: 50%;

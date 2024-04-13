@@ -72,7 +72,7 @@ let create_code_block = (parent, content, file_name) => {
     let data = document.createAttribute("data-file-name");
     data.value = file_name;
     child_code.classList.add("language-java");
-    child_code.innerHTML = content;
+    child_code.innerText = content;
     child_code.setAttributeNode(data);
 
     child_pre.appendChild(child_code);
