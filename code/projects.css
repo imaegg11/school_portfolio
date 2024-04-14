@@ -23,7 +23,7 @@ body {
     margin: 4rem auto;
     width: 80%;
     display: grid;
-    gap: 8px;
+    gap: 12px;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
 }
 
@@ -37,11 +37,49 @@ body {
 .project {
     height: 300px;
     background-color: rgb(23, 23, 23);
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    border-width: 2px;
     display: flex;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.project::after {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: calc(100% + 4px);
+    width: calc(100% + 4px);
+    border-radius: 10px;
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    /* opacity: 0;
+    transition: opacity 0.5s;
+    background: radial-gradient(250px circle at var(--x) var(--y), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); */
+}
+
+.project::before {
+    background: radial-gradient(500px circle at var(--x) var(--y), rgba(255, 255, 255, 0.1), transparent 40%);
+    border-radius: inherit;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project:hover::before {
+    opacity: 1;
+}
+
+#content:hover > .project::after {
+    opacity: 1;
+    background: radial-gradient(250px circle at var(--x) var(--y), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
 }
 
 .project-title {
@@ -86,3 +124,13 @@ body {
     margin: 2rem 1rem;
 }
 
+/* .big {
+    height: 70vh !important;
+    width: 70vw !important;
+    position: fixed !important;
+    z-index: 7 !important;
+}
+
+.project::after.big {
+    z-index: -100;
+} */

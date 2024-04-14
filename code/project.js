@@ -1,6 +1,12 @@
 window.addEventListener("mousemove", (event) => {
-    for (let children of document.getElementById("content").children) {
-        let pos = children.getBoundingClientRect()
-        children.setAttribute("style", `--x: ${event.clientX-pos.x}px; --y: ${event.clientY-pos.y}px`);
+    for (let child of document.getElementById("content").children) {
+        let pos = child.getBoundingClientRect()
+        child.setAttribute("style", `--x: ${event.clientX-pos.left}px; --y: ${event.clientY-pos.top}px`);
     }
 });
+
+for (let child of document.getElementById("content").children) {
+    child.addEventListener("click", (event) => {
+        event.target.classList.toggle("big");
+    })
+}
