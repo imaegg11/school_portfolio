@@ -100,6 +100,17 @@ let create_subtitle = (parent, content) => {
     parent.appendChild(child);
 }
 
+let create_list = (parent, items) => {
+    let child = document.createElement("ol");
+    for (let item of items) {
+        let list_item = document.createElement("li");
+        list_item.innerText = item;
+        child.appendChild(list_item);
+    }
+    parent.appendChild(child);
+    child.classList.add("list");
+}
+
 let create = (items) => {
 
     clipboard_codes = new Array(items.length);
@@ -115,6 +126,8 @@ let create = (items) => {
             create_body(parent, i.content);
         } else if (i.type == "subtitle") {
             create_subtitle(parent, i.content);
+        }  else if (i.type == "list") {
+            create_list(parent, i.content);
         }
     }
     

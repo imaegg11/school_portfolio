@@ -69,6 +69,13 @@ hr {
     color: var(--white);
 }
 
+.list {
+    font-size: 1.3rem;
+    color: var(--white);
+    user-select: text;
+    padding-left: 5rem;
+}
+
 .body-text {
     font-size: 1.3rem;
     color: var(--white);

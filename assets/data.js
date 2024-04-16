@@ -245,7 +245,55 @@ window.Arraylists = [
 window.BigO = [
     // https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/
     new item("title", "Big O Notation"), 
-    new item("body", "Wtf is this bs")
+    new item("body", "Big O notation represents the time complexity of an algorithm, which is simply how long it will take for the algorithm to run as a function of the length of the input. There are six major types of complexities: "),
+    new item("list", ["O(1) - Constant Time", 
+                      "O(n) - Linear Time",
+                      "O(n log n) - Logarithmic Time",
+                      "O(n**2) - Quadratic Time",
+                      "O(2**n) - Exponential Time",
+                      "O(n!) - Factorial Time"]),
+    new item("body", "Generally, programmers want their program to be as fast as possible, and this means that the time complexity of the code should be as low as possible. Below are some example of methods with the time complexity labeled."),
+    new item("code", `public class TimeComplexity  {
+        // O(1) method 
+        public static String getElement(String[] s, int index) {
+            return s[index]; 
+        }
+        
+        // O(n) method 
+        public static int product(int[] i) {
+            int total = 1;
+            for (int element : i) {
+                total *= element;
+            }
+            
+            return total;
+        }
+        
+        // O(n**2) method
+        public static int[] getPosition(String[][] s, String element) {
+            int x = 0;
+            int y = 0;
+            for (int i = 0; i < s.length; i++) {
+                for (int j = 0; j < s[i].length; j++) {
+                    if (s[i][j].equals(element)) {
+                        x = i;
+                        y = j;
+                        break;
+                    }
+                }
+            }
+            
+            return new int[] {x, y};
+        }
+        
+        // O(2**n) method 
+        public static int fibonacci(int n) {
+            if (n < 2) return n;
+            return fibonacci(n-1) + fibonacci(n-2);
+        } 
+    }
+    `, "TimeComplexity.java")
+    
 ]
 
 window.Searching = [
@@ -253,5 +301,26 @@ window.Searching = [
     // https://www.geeksforgeeks.org/binary-search/
     new item("title", "Searching"),
     new item("subtitle", "Lesson"),
-    new item("body", "Sometimes programmers have to find an element within an array. To do that, they utlise searching algorithms, such as linear search or binary search. ")
+    new item("body", "Sometimes programmers have to find an element within an array. To do that, they utlise searching algorithms, such as linear search or binary search. Each of these sorting algorithm has their own advantages and disadvantages and there are different use cases for each one."),
+    new item("body", "Linear search is one of the simplest, yet also the slowest, searching algorithm. It has a best case time complexity of O(1), assuming the first index is the element being searched for. However, it's worst case and average case time complexity is O(n). Linear search works by looping through the entire container, from one end to another, and checking each element to determine whether it is the right element being looked for. The advantage of this is that it is extremely simple to implement, thus making it friendly to beginner programmers. However, it is also one of the slower searching algorithms, making it very bad for large data sets. Below is an implementation for an integer array that returns the index."),
+    new item("code", `public class LinearSearch  {
+        // Linear search on a 1d integer array 
+        public static int linearSearch(int[] arr, int element) {
+            // Loop through all the elements
+            for (int i = 0; i < arr.length; i++) {
+                // Checks if it is the element and return the index 
+                if (arr[i] == element) return i;
+            }
+            
+            // -1 represents element not in array 
+            return -1;
+        }
+        
+        public static void main(String[] args) {
+            int[] arr = {3,435,35,45,4,2,3,423,42,4,64,5,1};
+            System.out.println("Element 423 found at position: " + linearSearch(arr, 423));
+        }
+    }
+    `, "LinearSearch.java"),
+    new item("body", "Another searching algorithms utlised by programmers is known as binary search. This sorting algorithm has a best case time complexity of O(1) and an avergae and worst case time complexity of O(log n). Binary search works only on an already sorted array. It works by having two pointers, that start out pointing to either ends of the array. It then checks the middle element between the two pointers. If the element is the target, we return the position. If the element is larger than the target, then we know that the ")
 ]
