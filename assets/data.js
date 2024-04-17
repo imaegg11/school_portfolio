@@ -249,8 +249,8 @@ window.BigO = [
     new item("list", ["O(1) - Constant Time", 
                       "O(n) - Linear Time",
                       "O(n log n) - Logarithmic Time",
-                      "O(n**2) - Quadratic Time",
-                      "O(2**n) - Exponential Time",
+                      "O(n^2) - Quadratic Time",
+                      "O(2^n) - Exponential Time",
                       "O(n!) - Factorial Time"]),
     new item("body", "Generally, programmers want their program to be as fast as possible, and this means that the time complexity of the code should be as low as possible. Below are some example of methods with the time complexity labeled."),
     new item("code", `public class TimeComplexity  {
@@ -269,7 +269,7 @@ window.BigO = [
             return total;
         }
         
-        // O(n**2) method
+        // O(n^2) method
         public static int[] getPosition(String[][] s, String element) {
             int x = 0;
             int y = 0;
@@ -286,7 +286,7 @@ window.BigO = [
             return new int[] {x, y};
         }
         
-        // O(2**n) method 
+        // O(2^n) method 
         public static int fibonacci(int n) {
             if (n < 2) return n;
             return fibonacci(n-1) + fibonacci(n-2);
@@ -317,10 +317,49 @@ window.Searching = [
         }
         
         public static void main(String[] args) {
-            int[] arr = {3,435,35,45,4,2,3,423,42,4,64,5,1};
-            System.out.println("Element 423 found at position: " + linearSearch(arr, 423));
+            int[] arr = {3, 4, 0, 14, 10, 12, 9, 2, 7, 1, 6, 13, 11, 5, 8};
+            System.out.println("Element 11 found at position: " + linearSearch(arr, 11));
         }
-    }
-    `, "LinearSearch.java"),
-    new item("body", "Another searching algorithms utlised by programmers is known as binary search. This sorting algorithm has a best case time complexity of O(1) and an avergae and worst case time complexity of O(log n). Binary search works only on an already sorted array. It works by having two pointers, that start out pointing to either ends of the array. It then checks the middle element between the two pointers. If the element is the target, we return the position. If the element is larger than the target, then we know that the ")
+    }`, "LinearSearch.java"),
+    new item("body", "Another searching algorithms utlised by programmers is known as binary search. This sorting algorithm has a best case time of O(1) and an avergae and worst case time complexity of O(log n). Binary search works only on an already sorted array. It works by having two pointers, that start out pointing to either ends of the array, the left and right pointer. It then checks the middle element between the two pointers. If the element is the target, we return the position. If the element is larger than the target, then we know that the target is left of the element. Thus, we would narrow down our pointers to the be the left and the index of the middle - 1. On the other hand, if it was smaller, then we would narrow down our pointers to be the index of the middle + 1 and right. We would constantly do this until we find our target. If the right pointer, at any time, becomes smaller than the left pointer, then we must know that the target is not in the array. Binary search has the advantage that it is much faster than linear search. However, it also sufferes from the drawback that the array must be sorted beforehand, or else it won't work. Below is an implementation for an integer array that returns the index."),
+    new item("code", `public class BinarySearch  {
+        // Binary search on a 1d integer array 
+        public static int binarySearch(int[] arr, int element) {
+            // Our two pointers 
+            int left = 0, right = arr.length-1;
+            
+            // Making sure right is not smaller than left 
+            while (right >= left) {
+                // Get middle 
+                int middle = (left + right) / 2; 
+                
+                // If the element at middle is our element, return the index 
+                if (arr[middle] == element) {
+                    return middle;
+                // If the element at middle is greater than element
+                } else if (arr[middle] > element) {
+                    // Set right to be middle - 1 
+                    right = middle - 1; 
+                // Else, element at middle is less than element
+                } else {
+                    // Set left to be middle + 1
+                    left = middle + 1; 
+                }
+            }
+            
+            // -1 represents element not in array 
+            return -1;
+        }
+        
+        public static void main(String[] args) {
+            int[] arr = {2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 7, 8};
+            System.out.println("Element 6 found at position: " + binarySearch(arr, 6));
+        }
+    }`, "BinarySearch.java")
+]
+
+window.Sorting = [
+    new item("title", "Sorting"),
+    new item("subtitle", "Lesson"),
+    new item("body", "")
 ]
