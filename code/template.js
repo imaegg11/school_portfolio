@@ -14,17 +14,20 @@ let format_code = async () => {
         code_cont.classList.add("code_cont");
         index.value = i;
         data.value = e.innerText;
-        e.classList.add("hljs");
+        // e.classList.add("hljs");
         e.setAttributeNode(index);
         e.setAttributeNode(data);
-        let new_text = e.innerText.split("\n").map((line, index) => {return `${index+1}.${line}`});
+        let new_text = e.innerText.split("\n").map((line, index) => {return `${index+1}.;${line}`});
         e.innerHTML = "";
-        let obj = await hljs.highlight("java", new_text.join("\n"));
-        code_cont.innerHTML = obj.value;
+        // let obj = await hljs.highlight("java", new_text.join("\n"));
+        let obj = parseText(new_text.join("\n"));
+        // code_cont.innerHTML = obj.value;
+        code_cont.innerHTML = obj;
         e.appendChild(code_cont);
     }
 
-    let numbers = document.getElementsByClassName("hljs-number");
+    // let numbers = document.getElementsByClassName("hljs-number");
+    let numbers = document.getElementsByClassName("syntax-number");
 
     for (let number of numbers) {
         if (/^\d+\.$/.test(number.innerText)) {
@@ -61,6 +64,8 @@ let format_code = async () => {
                 parent.appendChild(clipboard_child);
 
             }
+    
+            number.nextSibling.data = number.nextSibling.data.substring(1);
             number.innerText = number.innerText.substring(0, number.innerText.length-1) + " ".repeat(5 - number.innerText.length);
         }
     }

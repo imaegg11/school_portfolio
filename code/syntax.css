@@ -1,0 +1,33 @@
+code {
+    background-color: #191b1c;
+    color: #abb2bf;
+    display: block;
+	overflow-x: auto;
+	padding: .5em;
+	color: #abb2bf;
+	background: #282c34;
+}
+
+.keyword {
+    color: #C678DD;
+}
+
+.comment {
+    color: #5c6370;
+}
+
+.string {
+    color: #98C379;
+}
+
+.dataType {
+    color: #E5C078;
+}
+
+.syntax-number {
+    color: #D19A66;
+}
+
+.function {
+    color: #61AFEF;
+}
