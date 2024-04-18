@@ -17,6 +17,7 @@ let format_code = async () => {
         // e.classList.add("hljs");
         e.setAttributeNode(index);
         e.setAttributeNode(data);
+        // let new_text = e.innerText.split("\n").map((line, index) => {return `${index+1}.${line}`});
         let new_text = e.innerText.split("\n").map((line, index) => {return `${index+1}.;${line}`});
         e.innerHTML = "";
         // let obj = await hljs.highlight("java", new_text.join("\n"));
