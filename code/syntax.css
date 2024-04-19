@@ -1,11 +1,9 @@
 code {
-    background-color: #191b1c;
-    color: #abb2bf;
     display: block;
-	overflow-x: auto;
-	padding: .5em;
-	color: #abb2bf;
-	background: #282c34;
+    overflow-x: auto;
+    padding: .5em;
+    color: #abb2bf;
+    background: #282c34;
 }
 
 .keyword {
@@ -30,4 +28,8 @@ code {
 
 .function {
     color: #61AFEF;
+}
+
+.variable {
+    color: #E06C75;
 }
