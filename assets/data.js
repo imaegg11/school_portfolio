@@ -245,7 +245,7 @@ window.Arraylists = [
 window.BigO = [
     // https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/
     new item("title", "Big O Notation"), 
-    new item("body", "Big O notation represents the time complexity of an algorithm, which is simply how long it will take for the algorithm to run as a function of the length of the input. There are six major types of complexities: "),
+    new item("body", "Big O notation represents the time complexity of an algorithm, which is simply how long it will take for the algorithm to run as a function of the length of the input. For example, a method that loops over an array will have a time complexity equal to the length of the array being inputted. There are six major types of complexities: "),
     new item("list", ["O(1) - Constant Time", 
                       "O(n) - Linear Time",
                       "O(n log n) - Logarithmic Time",
@@ -321,7 +321,7 @@ window.Searching = [
             System.out.println("Element 11 found at position: " + linearSearch(arr, 11));
         }
     }`, "LinearSearch.java"),
-    new item("body", "Another searching algorithms utlised by programmers is known as binary search. This sorting algorithm has a best case time of O(1) and an avergae and worst case time complexity of O(log n). Binary search works only on an already sorted array. It works by having two pointers, that start out pointing to either ends of the array, the left and right pointer. It then checks the middle element between the two pointers. If the element is the target, we return the position. If the element is larger than the target, then we know that the target is left of the element. Thus, we would narrow down our pointers to the be the left and the index of the middle - 1. On the other hand, if it was smaller, then we would narrow down our pointers to be the index of the middle + 1 and right. We would constantly do this until we find our target. If the right pointer, at any time, becomes smaller than the left pointer, then we must know that the target is not in the array. Binary search has the advantage that it is much faster than linear search. However, it also sufferes from the drawback that the array must be sorted beforehand, or else it won't work. Below is an implementation for an integer array that returns the index."),
+    new item("body", "Another searching algorithms utlised by programmers is known as binary search. This sorting algorithm has a best case time of O(1) and an avergae and worst case time complexity of O(log n). Binary search works only on an already sorted array. The following explanation assumes that it is sorted from lowest to greatest. Binary search works by having two pointers, that start out pointing to either ends of the array, the left and right pointer. It then checks the middle element between the two pointers. If the element is the target, we return the position. If the element is larger than the target, then we know that the target is left of the element. Thus, we would narrow down our pointers to the be the left and the index of the middle - 1. On the other hand, if it was smaller, then we would narrow down our pointers to be the index of the middle + 1 and right. We would constantly do this until we find our target. If the right pointer, at any time, becomes smaller than the left pointer, then we must know that the target is not in the array. Binary search has the advantage that it is much faster than linear search. However, it also sufferes from the drawback that the array must be sorted beforehand, or else it won't work. Below is an implementation for an integer array that returns the index."),
     new item("code", `public class BinarySearch  {
         // Binary search on a 1d integer array 
         public static int binarySearch(int[] arr, int element) {
@@ -359,7 +359,61 @@ window.Searching = [
 ]
 
 window.Sorting = [
+    // https://www.geeksforgeeks.org/selection-sort/
+    // https://www.geeksforgeeks.org/stable-and-unstable-sorting-algorithms/
     new item("title", "Sorting"),
-    new item("subtitle", "Lesson"),
-    new item("body", "")
+    new item("subtitle", "How Do We Sort?"),
+    new item("body", "Binary search is quick and all, but it sufferes from the downfall of that the array needs to be sorted beforehand. So, how do programmers sort an array? Well, there are many, many different algorithms that can sort an array. This can range anywhere from basic sorting algorithms such as selection sort to more advanced ones like merge sort. Below are explanation of the sorting algorithms mentioned above."),
+    new item("subtitle", "Stability? Isn't This About Programming Though?"),
+    new item("body", "Before we talk about the sorting algorithms, lets talk about a property of it. Stability is the property of whether elements of the same value appear in the same relative order in both the unsorted array and the sorted array. A algorithm is said to be stable if this does happen and unstable if it doesn't. This could be important to a programmer as these values may be tied to other values that need to remain in order."),
+    new item("subtitle", "Selection Sort"),
+    new item("body", "Selection sort is one of the most basic types of sorting. It constantly selects the smallest element of the unsorted portion of the array and swaps it with the first element of the unsorted portion of the array, until it reaches the end. But how do we know what portion of the array is unsorted? Well, it is easier to take a look at an example. If there is an array of length 10, when the algorithm first starts out, it doesn't know if any of the elements are sorted. Thus, it declares the entire array to be the unsorted array. It will then pick the smallest element within the portion (the entire array) to swap it with the first element. After the first swap, the algorithm now knows that the first element is in the correct position. Thus, the first element is now sorted and the unsorted portion becomes the portion between the second element and the last element. It will then repeat this until it determines that every element is in the correct position. Selection sort is has an average time complexity of O(n^2) and is not a stable sort. This is because because when swapping elements, it may send an element that was previously in front of another element of the value to behind it. "),
+    new item("code", `public class SelectionSort
+    {
+        // Selection sort on a 1d array 
+        public static void selectionSort(int[] arr) {
+            
+            // Looping through each element, to be the first element of the unsorted portion
+            for (int i = 0; i < arr.length; i++) {
+                // An variable to keep track of the index of the smallest element 
+                int smallestIndex = i;
+                // Loop through the rest of the array from index j+1 (The unsorted portion)
+                for (int j = i+1; j < arr.length; j++) {
+                    // If the element at index j is smaller than the element at smallestIndex
+                    if (arr[j] < arr[smallestIndex]) {
+                        // Set the smallestIndex to be j 
+                        smallestIndex = j;
+                    }
+                }
+                // Perform the swap with the first element of the unsorted portion and the 
+                // element with the smallest value of the unsorted portion 
+                int temp = arr[smallestIndex];
+                arr[smallestIndex] = arr[i];
+                arr[i] = temp;
+            }
+            
+            return arr;
+        }
+        
+        public static void main(String[] args) {
+            int[] arr = {3, 4, 0, 14, 10, 12, 9, 2, 7, 1, 6, 13, 11, 5, 8};
+            selectionSort(arr);
+            // Outputting the sorted array
+            System.out.print("Sorted Array: ");
+            for (int i : arr) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+    `, "SelectionSort.java"),
+    new item("subtitle", "Merge Sort"),
+    new item("body", "Another sorting algorithm is merge sort. This algorithm is more advanced than selection sort and peforms much better on larger data sets. It is a divide and conquer sorting algorithm, meaning it breaks the array down into more manageable tasks. Given an array, it will perform the following steps until the array is declared to be sorted: "),
+    new item("list", [
+        "If the array has a length of 1, it must be sorted and end the method",
+        "If it isn't, find the middle and create two seperate arrays by spliting down the middle (One array will include the middle element)",
+        "Perform merge sort on the two arrays",
+        "Once sorted, merge these two sorted arrays to create one big sorted array"
+    ]),
+    new item("body", "Merge sort has a time complexity of O(n log n) as well as being a stable sort. The following implementation is recursive (Recursion is explained later in the recursion lesson)"),
+    new item("code", ``, "")
 ]
