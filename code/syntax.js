@@ -5,7 +5,6 @@ let find_data_types = (text) => {
     let extended_classes = ([...text.matchAll(/extends\s+[a-zA-Z0-9]+/gm)]).map((e) => e[0].split(/ +/)[1]);
     let created_classes = ([...text.matchAll(/class\s+[a-zA-Z0-9]+/gm)]).map((e) => e[0].split(/ +/)[1]);
     let variable_data_types = ([...text.matchAll(/[a-zA-Z0-9]+[ ]+[a-zA-Z0-9]+[ ]+=[^=]/gm)]).map((e) => e[0].split(/[ ]+/)[0]);
-    console.log([...text.matchAll(/implements[ ]+([a-zA-Z0-9]+[ ]*,?[ ]*)*/gm)])
     let implemented_interfaces = [...text.matchAll(/implements[ ]+([a-zA-Z0-9]+[ ]*,?[ ]*)*/gm)].length != 0 ? ([...text.matchAll(/implements[ ]+([a-zA-Z0-9]+[ ]*,?[ ]*)*/gm)])[0][0].split(/[ /,]+/).slice(1) : [];
     let created_interfaces = ([...text.matchAll(/interface\s+[a-zA-Z0-9]+/gm)]).map((e) => e[0].split(/ +/)[1]);
     return extended_classes.concat(created_classes, variable_data_types, implemented_interfaces, created_interfaces);
