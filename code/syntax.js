@@ -31,7 +31,7 @@ let parseToken = (token, isFunction, data_types, isVariable) => {
 }
 
 let parseText = (text) => {
-    let seperators = Array.from(";()[]{}<>,:=!*&%.\n+ ");
+    let seperators = Array.from(";()[]{}<>,:=!*&%.\n+-/^|?~ ");
     let currentToken = "";
     let highlightedText = "";
     let dataTypes = find_data_types(text).concat(global_data_types);
@@ -39,7 +39,7 @@ let parseText = (text) => {
         let char = text[i];
         if (seperators.includes(char)) {
             let tokenLength = currentToken.length;
-            if (currentToken.substring(0, 2) == "//" && char != "\n") {
+            if ((currentToken.substring(0, 2) == "//" && char != "\n") || (char == "/" && currentToken == "" && (i+1 < text.length) && text[i+1] == "/") || (char == "/" && currentToken == "/")) {
                 currentToken += char;
             } else if (Array.from("\"'").includes(currentToken[0]) && (currentToken[tokenLength - 1] != currentToken[0] || currentToken[tokenLength - 2] == "\\")) {
                 currentToken += char;
@@ -48,28 +48,28 @@ let parseText = (text) => {
             } else if (char == " ") {
                 let capture = "";
                 while (text[i] == " ") {
-                  i++;
-                  capture += text[i];
+                    i++;
+                    capture += text[i];
                 }
-                if (capture[capture.length-1] == "(") {
-                  highlightedText += parseToken(currentToken, true, dataTypes) + capture.substring(0, capture.length);
-                  currentToken = "";
+                if (capture[capture.length - 1] == "(") {
+                    highlightedText += parseToken(currentToken, true, dataTypes) + char + capture;
+                    currentToken = "";
                 } else {
-                  i -= capture.length;
-                  // GG I made an accidental variable detector lmfao that only detects 
-                  // it if its being declared, or being called but not when there's a method
-                  // being called??? I have no idea how this works (I think it's something
-                  // to do with highlighting everyhting else and not actually a variable
-                  // detector)
-                  highlightedText += parseToken(currentToken, false, dataTypes) + char; 
-                  currentToken = "";
+                    i -= capture.length;
+                    // GG I made an accidental variable detector lmfao that only detects 
+                    // it if its being declared, or being called but not when there's a method
+                    // being called??? I have no idea how this works (I think it's something
+                    // to do with highlighting everyhting else and not actually a variable
+                    // detector)
+                    highlightedText += parseToken(currentToken, false, dataTypes) + char;
+                    currentToken = "";
                 }
             } else if (char == "(") {
-                  highlightedText += parseToken(currentToken, true, dataTypes) + char;
-                  currentToken = "";
+                highlightedText += parseToken(currentToken, true, dataTypes) + char;
+                currentToken = "";
             } else {
-                  highlightedText += parseToken(currentToken, false, dataTypes) + char;
-                  currentToken = "";
+                highlightedText += parseToken(currentToken, false, dataTypes) + char;
+                currentToken = "";
             }
         } else {
             currentToken += char;

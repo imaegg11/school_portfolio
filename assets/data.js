@@ -27,7 +27,7 @@ window.OOP_Basic = [
     new item("title", "Object Oriented Programming - Basics"), 
     new item("subtitle", "Lesson"),
     new item("body", "Object oriented programming (OOP) is a programming model that utilizes objects and classes. Objects are data fields with unique attributes and behavior. An example of an object could be a table and the attributes could be thought as it's color or the material it's made of. In Java, objects are created from classes, which are like blueprints for the object. Within the classes, there are then attributes and methods. These attributes hold the state of an object. Going back to the table as an object example, the attributes inside of the class could contain the information about the color or the materials. Methods represents an object's behaviors, and can be used to modify the attributes or perform some other action. Finally, in Java, an object is an instance of the class, with it's own data values. For example, an object could be a table class with the color set as red and the material be plastic. To create an object in Java, we will invoke a constructor of the class with a new keyword, passing in the correct parameters."),
-    new item("body", "The code below demostrates the basics of a class and object. However in Java, there are more to attributes and methods than we have just covered."),
+    new item("body", "The code below demonstrates the basics of a class and object. However in Java, there are more to attributes and methods than we have just covered."),
     new item("code", 
     `// The Class: The blueprint for a table
     public class Table {
@@ -77,7 +77,7 @@ window.OOP_Basic = [
         Table t2 = new Table("blue", "wood"); 
         System.out.println("t1 name: " + t1.name + "    t2 name: " + t2.name);
         
-        // Change the static atttribute, name, through t2 
+        // Change the static attribute, name, through t2 
         t2.name = "Not Table";
         
         // Both table names have been changed because both static attribute 
@@ -92,8 +92,8 @@ window.OOP_Advanced = [
     // https://www.geeksforgeeks.org/inheritance-in-java/
     new item("title", "Object Oriented Programming - Advanced"),
     new item("subtitle", "Lesson"), 
-    new item("body", "Classes can have additional functionality through inheritance and [INSERT POLYMORPHISM???]. Inheritance is created through a superclass (the parent) and subclass (the child). This creates an is-a relation between the subclass and the superclass. In the subclass, it inherits code from the superclass. Therefore, we can reuse code and share code that is common between multiple classes. For example, the Table class may be our subclass and a Furniture class may be our superclass. Thus, some code can be reused in the Table calss from the Furniture class."),
-    new item("body", "Inheritance in Java is created through the usuage of the extends keyword."),
+    new item("body", "Classes can have additional functionality through inheritance and [INSERT POLYMORPHISM???]. Inheritance is created through a superclass (the parent) and subclass (the child). This creates an is-a relation between the subclass and the superclass. In the subclass, it inherits code from the superclass. Therefore, we can reuse code and share code that is common between multiple classes. For example, the Table class may be our subclass and a Furniture class may be our superclass. Thus, some code can be reused in the Table class from the Furniture class."),
+    new item("body", "Inheritance in Java is created through the usage of the extends keyword."),
     new item("code", `public class Table extends Furniture // Instead of just public class Table`, "Table.java"),
     new item("body", "This way, our Table class can now access all of the protected/public attributes and methods of the parent class (Furniture). For example, if there was a clean() method within the Furniture class, the Table class now has access to the method. "),
     new item("code", `// The "Parent" class 
@@ -126,7 +126,7 @@ window.Arrays = [
     // https://www.w3schools.com/java/java_arrays_loop.asp
     new item("title", "Arrays"),
     new item("subtitle", "Lesson"),
-    new item("body", "Arrays are used when we want to store multiple related values of the same data type into one variable. This allows easier declaration as well as looping through all the data. Each value (element) is stored at an index within the array that represents its position. The index is 0 based, meaning it starts from 0 instead of 1. The data type of an array is the data type of its elements with a square brackets, [ ]. To create a new array, we will use the new keyword, followed by the array data type, with the length of the array between the brackets. This will create an array of the length with every element being the default value for the data type. However, an array can also be created by using curly brackets, { }, with all the elements definied within, seperated by commas. To access one of these elements within the array, we use the syntax variableName[index] where the index is the index of the element we want to fetch. We can also use this to change the element at that index. Note that once we have declared the length of the array, we cannot change the length afterwards."),
+    new item("body", "Arrays are used when we want to store multiple related values of the same data type into one variable. This allows easier declaration as well as looping through all the data. Each value (element) is stored at an index within the array that represents its position. The index is 0 based, meaning it starts from 0 instead of 1. The data type of an array is the data type of its elements with a square brackets, [ ]. To create a new array, we will use the new keyword, followed by the array data type, with the length of the array between the brackets. This will create an array of the length with every element being the default value for the data type. However, an array can also be created by using curly brackets, { }, with all the elements defined within, separated by commas. To access one of these elements within the array, we use the syntax variableName[index] where the index is the index of the element we want to fetch. We can also use this to change the element at that index. Note that once we have declared the length of the array, we cannot change the length afterwards."),
     new item("code", `public class Array {
         public static void main(String[] args) {
             // A string array 
@@ -144,7 +144,7 @@ window.Arrays = [
         }
     }
     `, "Array.java"),
-    new item("body", "One of the advantages of arrays is that it is easy to loop through and access all of the information. In java, there are two ways to do it, both utlizing for loops. In the first method, we can use a for loop to loop through all the numbers from 0 (inclusive) to the length of the array (exclusive). Then, within the for loop, we can then fetch the element at the index. To get the length of the array, we use .length syntax. The other method is using a for each loop. A for each loop cannot modify the original data unless the original data was an object, as well as not having the index. The syntax of an for each loop is described below."),
+    new item("body", "One of the advantages of arrays is that it is easy to loop through and access all of the information. In java, there are two ways to do it, both utilizing for loops. In the first method, we can use a for loop to loop through all the numbers from 0 (inclusive) to the length of the array (exclusive). Then, within the for loop, we can then fetch the element at the index. To get the length of the array, we use .length syntax. The other method is using a for each loop. A for each loop cannot modify the original data unless the original data was an object, as well as not having the index. The syntax of an for each loop is described below."),
     new item("code", `public class Array {
         public static void main(String[] args) {
             int[] intArray = {3,1,4,1,5};
@@ -206,7 +206,7 @@ window.Arraylists = [
     new item("subtitle", "Lesson"),
     new item("body", "Arrays had a fixed size and cannot be modified after declaring the size. However, sometimes programmers need a flexible container for a bunch of elements. This is when ArrayLists come in. ArrayLists are like arrays (with different syntax) but their size can change."),
     new item("body", "Before we can even use it, we must first import a package. For this, we will use import java.util.ArrayList. To create a new ArrayList, we use the syntax ArrayList<dataType> variableName = new ArrayList<dataType>(). Note that primitive data types must use their wrapper class (e.g int and Integer). Once we have created an ArrayList, we can now add things to they ArrayList. To do that, we can use the syntax .add(element). We can also specify which location to add it to with the overloaded method using the syntax of .add(index, element). This will shift all the other elements after the index to the right. To obtain the element at a specified location, we use the .get(index) syntax. In order to change an element at a specific index, we use the .set(index, element)."),
-    new item("body", "Much like arrays, ArrayLists are also 0 based, meaning the first element in the ArrayList is at index 0. Similarlly, ArrayLists are also iterable over, meaning you can use a for loop to through the elements. You can use both a normal for loop utlising the .size() method to get the length of the array or using the for each loop mentioned in the arrays lesson. On top of that, ArrayLists can also be nested, creating nested ArrayLists."),
+    new item("body", "Much like arrays, ArrayLists are also 0 based, meaning the first element in the ArrayList is at index 0. Similarly, ArrayLists are also iterable over, meaning you can use a for loop to through the elements. You can use both a normal for loop utilizing the .size() method to get the length of the array or using the for each loop mentioned in the arrays lesson. On top of that, ArrayLists can also be nested, creating nested ArrayLists."),
     new item("code", `// Importing the package to use ArrayLists
     import java.util.ArrayList; 
     
@@ -301,7 +301,7 @@ window.Searching = [
     // https://www.geeksforgeeks.org/binary-search/
     new item("title", "Searching"),
     new item("subtitle", "Lesson"),
-    new item("body", "Sometimes programmers have to find an element within an array. To do that, they utlise searching algorithms, such as linear search or binary search. Each of these sorting algorithm has their own advantages and disadvantages and there are different use cases for each one."),
+    new item("body", "Sometimes programmers have to find an element within an array. To do that, they utilize searching algorithms, such as linear search or binary search. Each of these sorting algorithm has their own advantages and disadvantages and there are different use cases for each one."),
     new item("body", "Linear search is one of the simplest, yet also the slowest, searching algorithm. It has a best case time complexity of O(1), assuming the first index is the element being searched for. However, it's worst case and average case time complexity is O(n). Linear search works by looping through the entire container, from one end to another, and checking each element to determine whether it is the right element being looked for. The advantage of this is that it is extremely simple to implement, thus making it friendly to beginner programmers. However, it is also one of the slower searching algorithms, making it very bad for large data sets. Below is an implementation for an integer array that returns the index."),
     new item("code", `public class LinearSearch  {
         // Linear search on a 1d integer array 
@@ -321,7 +321,7 @@ window.Searching = [
             System.out.println("Element 11 found at position: " + linearSearch(arr, 11));
         }
     }`, "LinearSearch.java"),
-    new item("body", "Another searching algorithms utlised by programmers is known as binary search. This sorting algorithm has a best case time of O(1) and an avergae and worst case time complexity of O(log n). Binary search works only on an already sorted array. The following explanation assumes that it is sorted from lowest to greatest. Binary search works by having two pointers, that start out pointing to either ends of the array, the left and right pointer. It then checks the middle element between the two pointers. If the element is the target, we return the position. If the element is larger than the target, then we know that the target is left of the element. Thus, we would narrow down our pointers to the be the left and the index of the middle - 1. On the other hand, if it was smaller, then we would narrow down our pointers to be the index of the middle + 1 and right. We would constantly do this until we find our target. If the right pointer, at any time, becomes smaller than the left pointer, then we must know that the target is not in the array. Binary search has the advantage that it is much faster than linear search. However, it also sufferes from the drawback that the array must be sorted beforehand, or else it won't work. Below is an implementation for an integer array that returns the index."),
+    new item("body", "Another searching algorithms utilized by programmers is known as binary search. This sorting algorithm has a best case time of O(1) and an average and worst case time complexity of O(log n). Binary search works only on an already sorted array. The following explanation assumes that it is sorted from lowest to greatest. Binary search works by having two pointers, that start out pointing to either ends of the array, the left and right pointer. It then checks the middle element between the two pointers. If the element is the target, we return the position. If the element is larger than the target, then we know that the target is left of the element. Thus, we would narrow down our pointers to the be the left and the index of the middle - 1. On the other hand, if it was smaller, then we would narrow down our pointers to be the index of the middle + 1 and right. We would constantly do this until we find our target. If the right pointer, at any time, becomes smaller than the left pointer, then we must know that the target is not in the array. Binary search has the advantage that it is much faster than linear search. However, it also suffers from the drawback that the array must be sorted beforehand, or else it won't work. Below is an implementation for an integer array that returns the index."),
     new item("code", `public class BinarySearch  {
         // Binary search on a 1d integer array 
         public static int binarySearch(int[] arr, int element) {
@@ -363,13 +363,12 @@ window.Sorting = [
     // https://www.geeksforgeeks.org/stable-and-unstable-sorting-algorithms/
     new item("title", "Sorting"),
     new item("subtitle", "How Do We Sort?"),
-    new item("body", "Binary search is quick and all, but it sufferes from the downfall of that the array needs to be sorted beforehand. So, how do programmers sort an array? Well, there are many, many different algorithms that can sort an array. This can range anywhere from basic sorting algorithms such as selection sort to more advanced ones like merge sort. Below are explanation of the sorting algorithms mentioned above."),
+    new item("body", "Binary search is quick and all, but it suffers from the downfall of that the array needs to be sorted beforehand. So, how do programmers sort an array? Well, there are many, many different algorithms that can sort an array. This can range anywhere from basic sorting algorithms such as selection sort to more advanced ones like merge sort. Below are explanation of the sorting algorithms mentioned above."),
     new item("subtitle", "Stability? Isn't This About Programming Though?"),
     new item("body", "Before we talk about the sorting algorithms, lets talk about a property of it. Stability is the property of whether elements of the same value appear in the same relative order in both the unsorted array and the sorted array. A algorithm is said to be stable if this does happen and unstable if it doesn't. This could be important to a programmer as these values may be tied to other values that need to remain in order."),
-    new item("subtitle", "Selection Sort"),
+    new item("subtitle", "Selection Sort"), 
     new item("body", "Selection sort is one of the most basic types of sorting. It constantly selects the smallest element of the unsorted portion of the array and swaps it with the first element of the unsorted portion of the array, until it reaches the end. But how do we know what portion of the array is unsorted? Well, it is easier to take a look at an example. If there is an array of length 10, when the algorithm first starts out, it doesn't know if any of the elements are sorted. Thus, it declares the entire array to be the unsorted array. It will then pick the smallest element within the portion (the entire array) to swap it with the first element. After the first swap, the algorithm now knows that the first element is in the correct position. Thus, the first element is now sorted and the unsorted portion becomes the portion between the second element and the last element. It will then repeat this until it determines that every element is in the correct position. Selection sort is has an average time complexity of O(n^2) and is not a stable sort. This is because because when swapping elements, it may send an element that was previously in front of another element of the value to behind it. "),
-    new item("code", `public class SelectionSort
-    {
+    new item("code", `public class SelectionSort {
         // Selection sort on a 1d array 
         public static void selectionSort(int[] arr) {
             
@@ -407,13 +406,87 @@ window.Sorting = [
     }
     `, "SelectionSort.java"),
     new item("subtitle", "Merge Sort"),
-    new item("body", "Another sorting algorithm is merge sort. This algorithm is more advanced than selection sort and peforms much better on larger data sets. It is a divide and conquer sorting algorithm, meaning it breaks the array down into more manageable tasks. Given an array, it will perform the following steps until the array is declared to be sorted: "),
+    new item("body", "Another sorting algorithm is merge sort. This algorithm is more advanced than selection sort and performs much better on larger data sets. It is a divide and conquer sorting algorithm, meaning it breaks the array down into more manageable tasks. Given an array, it will perform the following steps until the array is declared to be sorted: "),
     new item("list", [
         "If the array has a length of 1, it must be sorted and end the method",
-        "If it isn't, find the middle and create two seperate arrays by spliting down the middle (One array will include the middle element)",
+        "If it isn't, find the middle and create two separate arrays by splitting down the middle (One array will include the middle element)",
         "Perform merge sort on the two arrays",
         "Once sorted, merge these two sorted arrays to create one big sorted array"
     ]),
     new item("body", "Merge sort has a time complexity of O(n log n) as well as being a stable sort. The following implementation is recursive (Recursion is explained later in the recursion lesson)"),
-    new item("code", ``, "")
+    new item("code", `public class MergeSort {
+        // Method to merge the two sections together
+        public static void merge(int[] arr, int left, int middle, int right) {
+
+            // Gets the first section from the array 
+            int[] firstSection = new int[middle-left+1];
+            for (int i = left; i <= middle; i++) firstSection[i-left] = arr[i];
+            // Get the section section from the array
+            int[] secondSection = new int[right-middle];
+            for (int i = middle+1; i <= right; i++) secondSection[i-(middle+1)] = arr[i];
+            
+            // Pointers to the current index for the first section, second section and the main array 
+            // during the mergining
+            int p1 = 0, p2 = 0, arrP = left;
+            // While both the index for first section and section is smaller than their lengths
+            while (p1 < firstSection.length && p2 < secondSection.length) {
+                // If the element at the current index for first section is smaller than the one for 
+                // the second section  
+                if (firstSection[p1] < secondSection[p2]) {
+                    // Add element and increment index
+                    arr[arrP] = firstSection[p1];
+                    p1++;
+                // Else the opposite is true 
+                } else {
+                    // Add element and increment index
+                    arr[arrP] = secondSection[p2];
+                    p2++;
+                }
+                // Increment the index of the main array 
+                arrP++;
+            }
+            
+            // Add the remaining elements of the first section, if any, to their positions
+            for (int i = p1; i < firstSection.length; i++) {
+                arr[arrP] = firstSection[i];
+                arrP++;
+            }
+            
+            // Add the remaining elements of the second section, if any, to their positions
+            for (int i = p2; i < secondSection.length; i++) {
+                arr[arrP] = secondSection[i];
+                arrP++;
+            }
+        }
+        
+        // Merge sort on a 1d array (Left and right indicate the indexes of the portion being looked at)
+        public static void mergeSort(int[] arr, int left, int right) {
+            // If it's one element, return (Already sorted)
+            if (right - left <= 0) return;
+            // Get middle
+            int middle = (left + right)/2;
+            // Merge sort on the two sections after the splitting into two 
+            mergeSort(arr, left, middle);
+            mergeSort(arr, middle+1, right);
+            // Merge the two sections together
+            merge(arr, left, middle, right);
+        }
+        
+        public static void main(String[] args) {
+            int[] arr = {3, 4, 0, 14, 10, 12, 9, 2, 7, 1, 6, 13, 11, 5, 8};
+            mergeSort(arr, 0, arr.length-1);
+            // Outputting the sorted array
+            System.out.print("Sorted Array: ");
+            for (int i : arr) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+    `, "MergeSort.java")
+]
+
+window.Recursion = [
+    new item("title", "Recursion"),
+    new item("subtitle", "Recursion"),
+    new item("body", "What is recursion? ")
 ]

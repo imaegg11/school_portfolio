@@ -15,7 +15,7 @@
 
 @font-face {
     font-family: 'JetBrains Mono';
-    src: url('../assets/JetBrainsMono-Regular.ttf') format("truetype");
+    src: url('../assets/JetBrainsMonoNL-Regular.ttf') format("truetype");
 }
 
 body {
@@ -76,6 +76,10 @@ hr {
     padding-left: 5rem;
 }
 
+.list_item {
+    padding-bottom: 0.5rem;
+}
+
 .body-text {
     font-size: 1.3rem;
     color: var(--white);
@@ -128,7 +132,4 @@ hr {
 
 .hide {
     display: none !important;
-}
-.hljs-comment {
-    font-style: normal !important;
 }

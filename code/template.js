@@ -111,6 +111,7 @@ let create_list = (parent, items) => {
     for (let item of items) {
         let list_item = document.createElement("li");
         list_item.innerText = item;
+        list_item.classList.add("list_item");
         child.appendChild(list_item);
     }
     parent.appendChild(child);
