@@ -112,7 +112,9 @@ window.OOP_Advanced = [
     // https://www.geeksforgeeks.org/inheritance-in-java/
     new item("title", "Object Oriented Programming - Advanced"),
     new item("subtitle", "Inheritance and Polymporphism"), 
-    new item("body", "Classes can have additional functionality through inheritance and [INSERT POLYMORPHISM???]. Inheritance is created through a superclass (the parent) and subclass (the child). This creates an is-a relation between the subclass and the superclass. In the subclass, it inherits code from the superclass. Therefore, we can reuse code and share code that is common between multiple classes. For example, the Table class may be our subclass and a Furniture class may be our superclass. Thus, some code can be reused in the Table class from the Furniture class."),
+    new item("body", "Classes can have additional functionality through inheritance and polymorphism. These are the key features that object oriented programming have. Inheritance allows classes inherit from different classes while polymorphism allows for classes to have many differnet \"forms\"."),
+    new item("subtitle", "Inheritance"),
+    new item("body", "Inheritance is created through a superclass (the parent) and subclass (the child). This creates an is-a relation between the subclass and the superclass. In the subclass, it inherits code from the superclass. Therefore, we can reuse code and share code that is common between multiple classes. For example, the Table class may be our subclass and a Furniture class may be our superclass. Thus, some code can be reused in the Table class from the Furniture class."),
     new item("body", "Inheritance in Java is created through the usage of the extends keyword."),
     new item("code", `public class Table extends Furniture // Instead of just public class Table`, "Table.java"),
     new item("body", "This way, our Table class can now access all of the protected/public attributes and methods of the parent class (Furniture). For example, if there was a clean() method within the Furniture class, the Table class now has access to the method. "),
@@ -138,6 +140,7 @@ window.OOP_Advanced = [
         t.clean();
         System.out.println("Dust amount after cleaning: " + t.getDustAmount());
     }`, "Table.java"),
+    new item("subtitle", "Accessing The Parent Class"),
     new item("body", "The subclass can also access the superclass through the keyword super. For example, super() will access the constructor of the super class.")
 ]
 
