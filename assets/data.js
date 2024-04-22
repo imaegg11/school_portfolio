@@ -222,7 +222,7 @@ window.Arrays = [
 window.Arraylists = [
     // https://www.w3schools.com/java/java_arraylist.asp
     // https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#add-int-E-
-    new item("body", "ArrayLists"),
+    new item("title", "ArrayLists"),
     new item("subtitle", "Lesson"),
     new item("body", "Arrays had a fixed size and cannot be modified after declaring the size. However, sometimes programmers need a flexible container for a bunch of elements. This is when ArrayLists come in. ArrayLists are like arrays (with different syntax) but their size can change."),
     new item("body", "Before we can even use it, we must first import a package. For this, we will use import java.util.ArrayList. To create a new ArrayList, we use the syntax ArrayList<dataType> variableName = new ArrayList<dataType>(). Note that primitive data types must use their wrapper class (e.g int and Integer). Once we have created an ArrayList, we can now add things to they ArrayList. To do that, we can use the syntax .add(element). We can also specify which location to add it to with the overloaded method using the syntax of .add(index, element). This will shift all the other elements after the index to the right. To obtain the element at a specified location, we use the .get(index) syntax. In order to change an element at a specific index, we use the .set(index, element)."),
