@@ -24,9 +24,13 @@ let item = createStruct("type content file_name");
 
 window.OOP_Basic = [
     // https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP
+    // https://www.baeldung.com/java-protected-access-modifier
     new item("title", "Object Oriented Programming - Basics"), 
-    new item("subtitle", "Lesson"),
-    new item("body", "Object oriented programming (OOP) is a programming model that utilizes objects and classes. Objects are data fields with unique attributes and behavior. An example of an object could be a table and the attributes could be thought as it's color or the material it's made of. In Java, objects are created from classes, which are like blueprints for the object. Within the classes, there are then attributes and methods. These attributes hold the state of an object. Going back to the table as an object example, the attributes inside of the class could contain the information about the color or the materials. Methods represents an object's behaviors, and can be used to modify the attributes or perform some other action. Finally, in Java, an object is an instance of the class, with it's own data values. For example, an object could be a table class with the color set as red and the material be plastic. To create an object in Java, we will invoke a constructor of the class with a new keyword, passing in the correct parameters."),
+    new item("subtitle", "Object Oriented Programming"),
+    new item("body", "Object oriented programming (OOP) is a programming model that utilizes objects and classes. Objects are data fields with unique attributes and behavior. An example of an object could be a table and the attributes could be thought as it's color or the material it's made of."),
+    new item("subtitle", "Java Objects and Classes"),
+    new item("body", "In Java, objects are created from classes, which are like blueprints for the object. Within the classes, there are then attributes and methods. These attributes hold the state of an object. Going back to the table as an object example, the attributes inside of the class could contain the information about the color or the materials. Methods represents an object's behaviors, and can be used to modify the attributes or perform some other action. Finally, in Java, an object is an instance of the class, with it's own data values. For example, an object could be a table class with the color set as red and the material be plastic."),
+    new item("body", "To create an object in Java, we will invoke the constructor of a class. The constuctor of a class is what creates the object. When writing a constuctor, it has no return type and the name is the name of the class. Java allows overloading constructors, meaning we can constructors with differnet arguements. This allows us to set up the basics for the class, setting values for attributes and more. "),
     new item("body", "The code below demonstrates the basics of a class and object. However in Java, there are more to attributes and methods than we have just covered."),
     new item("code", 
     `// The Class: The blueprint for a table
@@ -69,10 +73,11 @@ window.OOP_Basic = [
             System.out.println(t.getColor()); 
         }
     }`, "Table.java"),
+    new item("subtitle", "Attributes"),
     new item("body", "Attributes can be broken down into two different categories, instance and static. In java, an instance attributes is data that is localized to each object of the class. Each object will have it's own instance attributes, which can be different to another object's instance attributes. On the other hand, static attributes are the same throughout all objects of a class and every object has access to the same static attribute. There is only one copy of each static attribute per class."),
     new item("code", `// Same Table class as before
     public static void main(String[] args) {
-    
+        
         Table t1 = new Table("red", "plastic");
         Table t2 = new Table("blue", "wood"); 
         System.out.println("t1 name: " + t1.name + "    t2 name: " + t2.name);
@@ -83,15 +88,30 @@ window.OOP_Basic = [
         // Both table names have been changed because both static attribute 
         // points to the same static attribute (Shared across all objects)
         System.out.println("t1 name: " + t1.name + "    t2 name: " + t2.name);
-    
+        
     }`, "Table.java"),
+    new item("subtitle", "Methods"),
     new item("body", "Methods can also be categorized. Two common category are set and get methods. Set methods take in arguments and changes the value of one or more attribute. On the other hand, get methods are methods which will return the value of specific attributes. Both of these methods are designed for other parts of the program to interact with data inside of the object. "),
+    new item("code", `// Same Table class as before
+    public static void main(String[] args) {
+        
+        Table t = new Table("red", "plastic");
+        
+        // Using a set method to set the color attribute
+        t.paintColor("blue");
+        
+        // Using a get method to then get the value of the color atttribute
+        System.out.println(t.getColor()); 
+        
+    }`, "Table.java"),
+    new item("subtitle", "Access"),
+    new item("body", "In Java, there are different levels of access an attribute or methods can have. A public access is one where anything can access it. A public method can be called by anything and a public attribute can be modified by anything. A private access means that only the object itself and other objects of the same class can access it. This is where set and get methods come in, as they provide a way for other objects to modify or read these private attributes. Finally, there is protected access. This allows for any class that is the current class or subclasses to access it. Different attributes and methods will have different levels of access to them, depending on each of their uses. "),
 ]
 
 window.OOP_Advanced = [
     // https://www.geeksforgeeks.org/inheritance-in-java/
     new item("title", "Object Oriented Programming - Advanced"),
-    new item("subtitle", "Lesson"), 
+    new item("subtitle", "Inheritance and Polymporphism"), 
     new item("body", "Classes can have additional functionality through inheritance and [INSERT POLYMORPHISM???]. Inheritance is created through a superclass (the parent) and subclass (the child). This creates an is-a relation between the subclass and the superclass. In the subclass, it inherits code from the superclass. Therefore, we can reuse code and share code that is common between multiple classes. For example, the Table class may be our subclass and a Furniture class may be our superclass. Thus, some code can be reused in the Table class from the Furniture class."),
     new item("body", "Inheritance in Java is created through the usage of the extends keyword."),
     new item("code", `public class Table extends Furniture // Instead of just public class Table`, "Table.java"),
@@ -360,6 +380,7 @@ window.Searching = [
 
 window.Sorting = [
     // https://www.geeksforgeeks.org/selection-sort/
+    // https://www.geeksforgeeks.org/merge-sort/
     // https://www.geeksforgeeks.org/stable-and-unstable-sorting-algorithms/
     new item("title", "Sorting"),
     new item("subtitle", "How Do We Sort?"),
@@ -486,7 +507,42 @@ window.Sorting = [
 ]
 
 window.Recursion = [
+    // https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/
+    // https://www.javatpoint.com/stack-vs-heap-java
     new item("title", "Recursion"),
     new item("subtitle", "Recursion"),
-    new item("body", "What is recursion? ")
+    new item("body", "You might hear recursion get used often, but what exactly is it? To put it simply, it is when a method calls itself. When this happens, the method call gets placed on the top of the stack (where method calls and local variables are stored in the memory by Java). When it finally finishes all calls, the calls are removed from the stack, from top to bottom. This also means that it will resolve everything first in the last method call before starting to resolve everything else."),
+    new item("subtitle", "Wait, How Does It Finish All The Calls?"),
+    new item("body", "Well, in order to have a good recursive method, it must have a base case. A base case is a case in which the method will stop calling itself. This means, if the method determines it is true, it will no longer make any more calls to itself and thus, breaking the chain. A base case is very important in order to prevent a stack overflow, when the method calls itself too many times and Java runs out of memory. To make a good base case, it must be a case in which all intended inputs will reach it eventually. On the other hand, a recursive case is then a case in which the method will call itself with new parameters. "),
+    new item("subtitle", "Binary Search"),
+    new item("body", "So when can programmers use recursion? Many times, a iterative solution is better than a recursive one. However, recursion can still be used for many differnet things. An example is binary search. The binary search in the searching lesson was using a iterative solution. Below, is an implementation utilzing recursion. "),
+    new item("code", `public class BinarySearch  {
+        // Binary search on a 1d integer array 
+        public static int binarySearch(int[] arr, int element, int left, int right) {
+    
+            // Base Case A: The element is not in the array
+            if (right < left) return -1;
+    
+            // Get middle 
+            int middle = (left + right) / 2; 
+                
+            // Base Case B: If the element at middle is our element, return the index 
+            if (arr[middle] == element) {
+                return middle;
+            // Recursive Case A: If the element at middle is greater than element
+            } else if (arr[middle] > element) {
+                // Recall method with right to be middle - 1 
+                return binarySearch(arr, element, left, middle-1);
+            // Recursive Case B: Else, element at middle is less than element
+            } else {
+                // Recall method with left to be middle + 1
+                return binarySearch(arr, element, middle+1, right);
+            } 
+        }
+        
+        public static void main(String[] args) {
+            int[] arr = {2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 7, 8};
+            System.out.println("Element 6 found at position: " + binarySearch(arr, 6, 0, arr.length-1));
+        }
+    }`, "BinarySearch.java"),
 ]
