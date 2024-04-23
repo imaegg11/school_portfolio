@@ -1,4 +1,4 @@
-const titles = ["student", "programmer", "problem solver", "critical thinker"];
+const titles = ["student", "programmer", "problem solver"];
 
 /*
 https://www.w3schools.com/jsref/met_win_requestanimationframe.asp
