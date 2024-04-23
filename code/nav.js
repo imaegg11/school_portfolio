@@ -1,3 +1,5 @@
+document.getElementById("page-container").classList.remove("hide");
+
 let goTo = (link) => {
     location.href = link;
 }

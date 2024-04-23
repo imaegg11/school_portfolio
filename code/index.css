@@ -22,10 +22,8 @@
 body {
     font-family: "Montserrat";
     user-select: none;
-}
-
-body {
     margin: 0;
+    background-color: var(--black);
 }
 
 /*
@@ -107,8 +105,4 @@ body {
     100% {
         opacity: 0%
     }
-}
-
-.hide {
-    display: none;
 }

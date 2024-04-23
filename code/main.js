@@ -1,10 +1,10 @@
-document.getElementById("page-container").classList.remove("hide");
-
-const titles = ["student", "programmer", "procrastinator"];
+const titles = ["student", "programmer", "problem solver", "critical thinker"];
 
 /*
-  https://www.w3schools.com/jsref/met_win_requestanimationframe.asp
+https://www.w3schools.com/jsref/met_win_requestanimationframe.asp
 */
+
+let index = 0;
 
 let typing = (n) => {
     document.getElementById("cursor").classList.toggle("cursor-fade");
@@ -20,6 +20,9 @@ let typing = (n) => {
             }, 100 + Math.random() * 10)
         } else {
             document.getElementById("cursor").classList.toggle("cursor-fade");
+            setTimeout(() => {
+                deleting();
+            }, 1500)
         }
     }
     requestAnimationFrame(typing_animation);
@@ -37,31 +40,35 @@ let deleting = () => {
             }, 60 + Math.random() * 10)
         } else if (text == "A ") {
             document.getElementById("cursor").classList.toggle("cursor-fade");
+            index++;
+            index %= titles.length;
+            setTimeout(() => {
+                typing(index);
+            }, 1500)
         }
     }
 
     requestAnimationFrame(deleting_animation);
 }
 
-let index = 0;
-let typing_text = () => {
-    let text = document.getElementById("typing").innerText;
-    let timeOut = 2000;
-    if (text != "A ") {
-        deleting();
-        index++;
-        index %= titles.length;
-    } else {
-        typing(index);
-        timeOut = titles[index].length * 110 + 1500;
-    }
-    setTimeout(() => {
-        requestAnimationFrame(typing_text);
-    }, timeOut)
-}
+// let typing_text = () => {
+//     let text = document.getElementById("typing").innerText;
+//     let timeOut = 2000;
+//     if (text != "A ") {
+//         deleting();
+//         index++;
+//         index %= titles.length;
+//     } else {
+//         typing(index);
+//         timeOut = titles[index].length * 110 + 1500;
+//     }
+//     setTimeout(() => {
+//         requestAnimationFrame(typing_text);
+//     }, timeOut)
+// }
 
-requestAnimationFrame(typing_text);
-
+// requestAnimationFrame(typing_text);
+typing(index);
 
 
 

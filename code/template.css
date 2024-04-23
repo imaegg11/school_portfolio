@@ -129,7 +129,3 @@ hr {
 #back-to-top:hover > #top-svg {
     top: 0;
 }
-
-.hide {
-    display: none !important;
-}

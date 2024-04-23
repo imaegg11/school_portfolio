@@ -159,3 +159,7 @@
 	left: 20%;
 	pointer-events: none;
 }
+
+.hide {
+    display: none !important;
+}
