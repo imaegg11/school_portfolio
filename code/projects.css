@@ -24,7 +24,7 @@ body {
     width: 80%;
     display: grid;
     gap: 12px;
-    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(18.75rem, 1fr));
 }
 
 #title {
@@ -35,7 +35,7 @@ body {
 }
 
 .project {
-    height: 300px;
+    height: 18.75rem;
     background-color: rgb(23, 23, 23);
     border-radius: 10px;
     display: flex;
@@ -60,7 +60,7 @@ body {
 }
 
 .project::before {
-    background: radial-gradient(500px circle at var(--x) var(--y), rgba(255, 255, 255, 0.1), transparent 40%);
+    background: radial-gradient(31.25rem circle at var(--x) var(--y), rgba(255, 255, 255, 0.1), transparent 40%);
     border-radius: inherit;
     z-index: 2;
     left: 0px;
@@ -79,7 +79,7 @@ body {
 
 #content:hover > .project::after {
     opacity: 1;
-    background: radial-gradient(250px circle at var(--x) var(--y), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    background: radial-gradient(15.625rem circle at var(--x) var(--y), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
 }
 
 .project-title {
@@ -97,7 +97,7 @@ body {
 }
 
 .span-1 > .project-img {
-    width: min(140px, 35%);
+    width: min(8.75rem, 35%);
     margin: auto;
 }
 
@@ -115,7 +115,7 @@ body {
 }
 
 .project-img {
-    width: max(240px, 10%);
+    width: max(15rem, 10%);
     margin: auto 0 auto 1rem;
     margin-left: 1rem;
 }
@@ -124,13 +124,16 @@ body {
     margin: 2rem 1rem;
 }
 
-/* .big {
-    height: 70vh !important;
-    width: 70vw !important;
-    position: fixed !important;
-    z-index: 7 !important;
+#modal {
+    /* background-color: var(--dark-grey); */
+    background-color: rgb(23, 23, 23);
+    height: 70vh;
+    width: 70vw;
+    border-width: 0;
+    border-radius: 12px;
 }
 
-.project::after.big {
-    z-index: -100;
-} */
+#modal::backdrop {
+    background-color: black;
+    opacity: 0.5;
+}

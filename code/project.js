@@ -7,6 +7,12 @@ window.addEventListener("mousemove", (event) => {
 
 for (let child of document.getElementById("content").children) {
     child.addEventListener("click", (event) => {
-        event.target.classList.toggle("big");
+        document.querySelector("dialog").showModal();
+        document.querySelector("dialog").blur();
+        // document.body.style.overflow = "hidden";
     })
 }
+
+document.querySelector("dialog").addEventListener("close", (event) => {
+    // document.body.style.overflow = "auto";
+})

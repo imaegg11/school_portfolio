@@ -148,7 +148,7 @@ window.Arrays = [
     // https://www.w3schools.com/java/java_arrays.asp
     // https://www.w3schools.com/java/java_arrays_loop.asp
     new item("title", "Arrays"),
-    new item("subtitle", "Lesson"),
+    new item("subtitle", "Arrays"),
     new item("body", "Arrays are used when we want to store multiple related values of the same data type into one variable. This allows easier declaration as well as looping through all the data. Each value (element) is stored at an index within the array that represents its position. The index is 0 based, meaning it starts from 0 instead of 1. The data type of an array is the data type of its elements with a square brackets, [ ]. To create a new array, we will use the new keyword, followed by the array data type, with the length of the array between the brackets. This will create an array of the length with every element being the default value for the data type. However, an array can also be created by using curly brackets, { }, with all the elements defined within, separated by commas. To access one of these elements within the array, we use the syntax variableName[index] where the index is the index of the element we want to fetch. We can also use this to change the element at that index. Note that once we have declared the length of the array, we cannot change the length afterwards."),
     new item("code", `public class Array {
         public static void main(String[] args) {
@@ -167,6 +167,7 @@ window.Arrays = [
         }
     }
     `, "Array.java"),
+    new item("subtitle", "Iterating"),
     new item("body", "One of the advantages of arrays is that it is easy to loop through and access all of the information. In java, there are two ways to do it, both utilizing for loops. In the first method, we can use a for loop to loop through all the numbers from 0 (inclusive) to the length of the array (exclusive). Then, within the for loop, we can then fetch the element at the index. To get the length of the array, we use .length syntax. The other method is using a for each loop. A for each loop cannot modify the original data unless the original data was an object, as well as not having the index. The syntax of an for each loop is described below."),
     new item("code", `public class Array {
         public static void main(String[] args) {
@@ -195,6 +196,7 @@ window.Arrays = [
         }
     }
     `, "Array.java"),
+    new item("subtitle", "Arrays Within Arrays"),
     new item("body", "Another advantage of arrays is that they can be nested. This means that an array can contain other arrays. Accessing the information is the same as if it was a normal array, but instead of getting the element, the element is another array. We can call these an nD array where n is the number of arrays that contains another array inside of it plus one (E.g a 2D array is an array containing another array)."),
     new item("code", `public class Array {
         public static void main(String[] args) {
@@ -226,8 +228,8 @@ window.Arraylists = [
     // https://www.w3schools.com/java/java_arraylist.asp
     // https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#add-int-E-
     new item("title", "ArrayLists"),
-    new item("subtitle", "Lesson"),
-    new item("body", "Arrays had a fixed size and cannot be modified after declaring the size. However, sometimes programmers need a flexible container for a bunch of elements. This is when ArrayLists come in. ArrayLists are like arrays (with different syntax) but their size can change."),
+    new item("subtitle", "Arrays With Changable Size"),
+    new item("body", "Arrays have a fixed size and cannot be modified after declaring the size. However, sometimes programmers need a flexible container for a bunch of elements. This is when ArrayLists come in. ArrayLists are like arrays but with a changable size."),
     new item("body", "Before we can even use it, we must first import a package. For this, we will use import java.util.ArrayList. To create a new ArrayList, we use the syntax ArrayList<dataType> variableName = new ArrayList<dataType>(). Note that primitive data types must use their wrapper class (e.g int and Integer). Once we have created an ArrayList, we can now add things to they ArrayList. To do that, we can use the syntax .add(element). We can also specify which location to add it to with the overloaded method using the syntax of .add(index, element). This will shift all the other elements after the index to the right. To obtain the element at a specified location, we use the .get(index) syntax. In order to change an element at a specific index, we use the .set(index, element)."),
     new item("body", "Much like arrays, ArrayLists are also 0 based, meaning the first element in the ArrayList is at index 0. Similarly, ArrayLists are also iterable over, meaning you can use a for loop to through the elements. You can use both a normal for loop utilizing the .size() method to get the length of the array or using the for each loop mentioned in the arrays lesson. On top of that, ArrayLists can also be nested, creating nested ArrayLists."),
     new item("code", `// Importing the package to use ArrayLists
@@ -268,7 +270,8 @@ window.Arraylists = [
 window.BigO = [
     // https://www.freecodecamp.org/news/big-o-cheat-sheet-time-complexity-chart/
     new item("title", "Big O Notation"), 
-    new item("body", "Big O notation represents the time complexity of an algorithm, which is simply how long it will take for the algorithm to run as a function of the length of the input. For example, a method that loops over an array will have a time complexity equal to the length of the array being inputted. There are six major types of complexities: "),
+    new item("subtitle", "How Are Algorithms Measured?"),
+    new item("body", "Big O notation represents the time complexity of an algorithm, which is simply how long it will take for the algorithm to run as a function of the length of the input.For example, a method that loops over an array will have a time complexity equal to the length of the array being inputted. There are six major types of complexities: "),
     new item("list", ["O(1) - Constant Time", 
                       "O(n) - Linear Time",
                       "O(n log n) - Logarithmic Time",
@@ -323,8 +326,9 @@ window.Searching = [
     // https://www.geeksforgeeks.org/linear-search/
     // https://www.geeksforgeeks.org/binary-search/
     new item("title", "Searching"),
-    new item("subtitle", "Lesson"),
+    new item("subtitle", "Let's Find A Needle In A Haystack"),
     new item("body", "Sometimes programmers have to find an element within an array. To do that, they utilize searching algorithms, such as linear search or binary search. Each of these sorting algorithm has their own advantages and disadvantages and there are different use cases for each one."),
+    new item("subtitle", "Linear Search"),
     new item("body", "Linear search is one of the simplest, yet also the slowest, searching algorithm. It has a best case time complexity of O(1), assuming the first index is the element being searched for. However, it's worst case and average case time complexity is O(n). Linear search works by looping through the entire container, from one end to another, and checking each element to determine whether it is the right element being looked for. The advantage of this is that it is extremely simple to implement, thus making it friendly to beginner programmers. However, it is also one of the slower searching algorithms, making it very bad for large data sets. Below is an implementation for an integer array that returns the index."),
     new item("code", `public class LinearSearch  {
         // Linear search on a 1d integer array 
@@ -344,6 +348,7 @@ window.Searching = [
             System.out.println("Element 11 found at position: " + linearSearch(arr, 11));
         }
     }`, "LinearSearch.java"),
+    new item("subtitle", "Binary Search"),
     new item("body", "Another searching algorithms utilized by programmers is known as binary search. This sorting algorithm has a best case time of O(1) and an average and worst case time complexity of O(log n). Binary search works only on an already sorted array. The following explanation assumes that it is sorted from lowest to greatest. Binary search works by having two pointers, that start out pointing to either ends of the array, the left and right pointer. It then checks the middle element between the two pointers. If the element is the target, we return the position. If the element is larger than the target, then we know that the target is left of the element. Thus, we would narrow down our pointers to the be the left and the index of the middle - 1. On the other hand, if it was smaller, then we would narrow down our pointers to be the index of the middle + 1 and right. We would constantly do this until we find our target. If the right pointer, at any time, becomes smaller than the left pointer, then we must know that the target is not in the array. Binary search has the advantage that it is much faster than linear search. However, it also suffers from the drawback that the array must be sorted beforehand, or else it won't work. Below is an implementation for an integer array that returns the index."),
     new item("code", `public class BinarySearch  {
         // Binary search on a 1d integer array 

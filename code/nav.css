@@ -10,8 +10,12 @@
 
 @media (max-width: 768px) {
 	html {
-		font-size: 9px;
+		font-size: 9px !important;
 	}
+}
+
+html {
+	font-size: 16px;
 }
 
 /* 
@@ -120,10 +124,14 @@
 	background-position-y: 1.17em;
 	background-position-x: 0%;
 	background-repeat: no-repeat;
-	background-image: linear-gradient(var(--white), var(--white));
+	background-image: linear-gradient(currentcolor, currentcolor);
 }
 
 .underline-animation:hover {
+	background-size: 100% 1px;
+}
+
+.underline-animation-container:hover > .underline-animation {
 	background-size: 100% 1px;
 }
 

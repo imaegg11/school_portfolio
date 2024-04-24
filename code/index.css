@@ -6,6 +6,7 @@
     --blue: #1964c8;
     --lighter-blue: #61afef;
     --bright-blue: #51acff;
+    --other-blue: #80C1FF
 }
 
 /* 
@@ -105,4 +106,8 @@ body {
     100% {
         opacity: 0%
     }
+}
+
+#icons > * {
+    cursor: pointer;
 }
