@@ -30,7 +30,7 @@ window.OOP_Basic = [
     new item("body", "Object oriented programming (OOP) is a programming model that utilizes objects and classes. Objects are data fields with unique attributes and behavior. An example of an object could be a table and the attributes could be thought as it's color or the material it's made of."),
     new item("subtitle", "Java Objects and Classes"),
     new item("body", "In Java, objects are created from classes, which are like blueprints for the object. Within the classes, there are then attributes and methods. These attributes hold the state of an object. Going back to the table as an object example, the attributes inside of the class could contain the information about the color or the materials. Methods represents an object's behaviors, and can be used to modify the attributes or perform some other action. Finally, in Java, an object is an instance of the class, with it's own data values. For example, an object could be a table class with the color set as red and the material be plastic."),
-    new item("body", "To create an object in Java, we will invoke the constructor of a class. The constuctor of a class is what creates the object. When writing a constuctor, it has no return type and the name is the name of the class. Java allows overloading constructors, meaning we can constructors with differnet arguements. This allows us to set up the basics for the class, setting values for attributes and more. "),
+    new item("body", "To create an object in Java, we will invoke the constructor of a class. The constructor of a class is what creates the object. When writing a constructor, it has no return type and the name is the name of the class. Java allows overloading constructors, meaning we can constructors with different arguments. This allows us to set up the basics for the class, setting values for attributes and more. "),
     new item("body", "The code below demonstrates the basics of a class and object. However in Java, there are more to attributes and methods than we have just covered."),
     new item("code", 
     `// The Class: The blueprint for a table
@@ -100,7 +100,7 @@ window.OOP_Basic = [
         // Using a set method to set the color attribute
         t.paintColor("blue");
         
-        // Using a get method to then get the value of the color atttribute
+        // Using a get method to then get the value of the color attribute
         System.out.println(t.getColor()); 
         
     }`, "Table.java"),
@@ -111,8 +111,8 @@ window.OOP_Basic = [
 window.OOP_Advanced = [
     // https://www.geeksforgeeks.org/inheritance-in-java/
     new item("title", "Object Oriented Programming - Advanced"),
-    new item("subtitle", "Inheritance and Polymporphism"), 
-    new item("body", "Classes can have additional functionality through inheritance and polymorphism. These are the key features that object oriented programming have. Inheritance allows classes inherit from different classes while polymorphism allows for classes to have many differnet \"forms\"."),
+    new item("subtitle", "Inheritance and Polymorphism"), 
+    new item("body", "Classes can have additional functionality through inheritance and polymorphism. These are the key features that object oriented programming have. Inheritance allows classes inherit from different classes while polymorphism allows for classes to have many different \"forms\"."),
     new item("subtitle", "Inheritance"),
     new item("body", "Inheritance is created through a superclass (the parent) and subclass (the child). This creates an is-a relation between the subclass and the superclass. In the subclass, it inherits code from the superclass. Therefore, we can reuse code and share code that is common between multiple classes. For example, the Table class may be our subclass and a Furniture class may be our superclass. Thus, some code can be reused in the Table class from the Furniture class."),
     new item("body", "Inheritance in Java is created through the usage of the extends keyword."),
@@ -228,8 +228,8 @@ window.Arraylists = [
     // https://www.w3schools.com/java/java_arraylist.asp
     // https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#add-int-E-
     new item("title", "ArrayLists"),
-    new item("subtitle", "Arrays With Changable Size"),
-    new item("body", "Arrays have a fixed size and cannot be modified after declaring the size. However, sometimes programmers need a flexible container for a bunch of elements. This is when ArrayLists come in. ArrayLists are like arrays but with a changable size."),
+    new item("subtitle", "Arrays With Changeable Size"),
+    new item("body", "Arrays have a fixed size and cannot be modified after declaring the size. However, sometimes programmers need a flexible container for a bunch of elements. This is when ArrayLists come in. ArrayLists are like arrays but with a changeable size."),
     new item("body", "Before we can even use it, we must first import a package. For this, we will use import java.util.ArrayList. To create a new ArrayList, we use the syntax ArrayList<dataType> variableName = new ArrayList<dataType>(). Note that primitive data types must use their wrapper class (e.g int and Integer). Once we have created an ArrayList, we can now add things to they ArrayList. To do that, we can use the syntax .add(element). We can also specify which location to add it to with the overloaded method using the syntax of .add(index, element). This will shift all the other elements after the index to the right. To obtain the element at a specified location, we use the .get(index) syntax. In order to change an element at a specific index, we use the .set(index, element)."),
     new item("body", "Much like arrays, ArrayLists are also 0 based, meaning the first element in the ArrayList is at index 0. Similarly, ArrayLists are also iterable over, meaning you can use a for loop to through the elements. You can use both a normal for loop utilizing the .size() method to get the length of the array or using the for each loop mentioned in the arrays lesson. On top of that, ArrayLists can also be nested, creating nested ArrayLists."),
     new item("code", `// Importing the package to use ArrayLists
@@ -455,7 +455,7 @@ window.Sorting = [
             for (int i = middle+1; i <= right; i++) secondSection[i-(middle+1)] = arr[i];
             
             // Pointers to the current index for the first section, second section and the main array 
-            // during the mergining
+            // during the merging
             int p1 = 0, p2 = 0, arrP = left;
             // While both the index for first section and section is smaller than their lengths
             while (p1 < firstSection.length && p2 < secondSection.length) {
@@ -523,7 +523,7 @@ window.Recursion = [
     new item("subtitle", "Wait, How Does It Finish All The Calls?"),
     new item("body", "Well, in order to have a good recursive method, it must have a base case. A base case is a case in which the method will stop calling itself. This means, if the method determines it is true, it will no longer make any more calls to itself and thus, breaking the chain. A base case is very important in order to prevent a stack overflow, when the method calls itself too many times and Java runs out of memory. To make a good base case, it must be a case in which all intended inputs will reach it eventually. On the other hand, a recursive case is then a case in which the method will call itself with new parameters. "),
     new item("subtitle", "Binary Search"),
-    new item("body", "So when can programmers use recursion? Many times, a iterative solution is better than a recursive one. However, recursion can still be used for many differnet things. An example is binary search. The binary search in the searching lesson was using a iterative solution. Below, is an implementation utilzing recursion. "),
+    new item("body", "So when can programmers use recursion? Many times, a iterative solution is better than a recursive one. However, recursion can still be used for many different things. An example is binary search. The binary search in the searching lesson was using a iterative solution. Below, is an implementation utlising recursion. "),
     new item("code", `public class BinarySearch  {
         // Binary search on a 1d integer array 
         public static int binarySearch(int[] arr, int element, int left, int right) {
