@@ -7,8 +7,40 @@ window.addEventListener("mousemove", (event) => {
 
 for (let child of document.getElementById("content").children) {
     child.addEventListener("click", (event) => {
-        document.querySelector("dialog").showModal();
-        document.querySelector("dialog").blur();
+        let e = event.target;
+        let title = e.children[1].children[0].innerText;
+        let project_info;
+        for (let i of projects) {
+            if (i.name == title) {
+                project_info = i;
+                break;
+            }
+        }
+        
+        let modal = document.querySelector("dialog");
+        modal.showModal();
+        modal.blur();
+
+        let children = modal.children;
+        children[1].innerText = title;
+        let grandchildren = children[2].children;
+        grandchildren[0].src = project_info.img;
+        grandchildren[1].children[0].innerText = project_info.about;
+        let made_with = grandchildren[1].children[2];
+        made_with.inenrHTML = "";
+        made_with.replaceChildren();
+        console.log(made_with);
+        for (let tech of project_info.tech) {
+            let e = document.createElement("li");
+            e.innerText = tech;
+            made_with.appendChild(e);
+        } 
+
+        if (project_info.download_type == "download") {
+            grandchildren[1].children[3].innerText = "Download";
+        } else {
+            grandchildren[1].children[3].innerText = "View on Github";
+        }
         // document.body.style.overflow = "hidden";
     })
 }
@@ -16,3 +48,17 @@ for (let child of document.getElementById("content").children) {
 document.querySelector("dialog").addEventListener("close", (event) => {
     // document.body.style.overflow = "auto";
 })
+
+let add_content = () => {
+    let content_cont = document.getElementById("content");
+    for (let i = 0; i < content_cont.children.length; i++) {
+        let child = content_cont.children[i];
+        let content = projects[i];
+        let grandchildren = child.children;
+        grandchildren[1].children[0].innerText = content.name;
+        grandchildren[1].children[1].innerText = content.about;
+        grandchildren[0].src = content.img;
+    }
+}
+
+add_content();

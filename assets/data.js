@@ -21,6 +21,15 @@ function createStruct(names) {
 }
 
 let item = createStruct("type content file_name");
+let project = createStruct("name img about tech download download_type")
+
+let projects = [
+    new project("Chess", "", "Chess is an abstract strategy game where the both sides attempt to checkmate the opponenet.\n\nThis recreation of chess was made in Python using the library pygame and stockfish. The squares are highlighted for the last pieces moved as well as the legal moves when clicking on a piece. It also has a time controls, which you can modify in the config file. Stockfish is also usable with this project.\n\nRead the README.md file for information on how to use.", ["Python", "Pygame"], "https://github.com/imaegg11/chess", "github"),
+    new project("Portfolio", "", "The portfolio website that you are currently looking at. Built on HTML, CSS and JavaScript (with no libraries), it is the place to find out more about me. It contains projects that I have made, tutorials for ICS4U as well as some things about myself. \n\nThis portfolio was made for ICS4U.", ["HTML", "CSS", "JavaScript"], "", "download"),
+    new project("Asteriod Alert", "", "Asteriod alert is a game that follows the astronaut that is scrambling to fix their escape pod in order to save the world from an asteriod. To fix their escape pod, they must go through multiple rooms within the space station to find the nesscary parts. Fix the escape pod and save the world. Be unable to fix it and watch the world be destroyed.\n\nMade for ICS2OP culminating with Colin.", ["Processing Java"], "", "download"),
+    new project("Chemistry Carnival", "", "Chemistry Carnival is a game where the player learns about chemistry and molecules. It takes the player through a splash screen, into a maze of learning, where the player learns about how certain molecules are formed and used for. Finally, the player will use that knowledge in the final game part, where they race against the clock to form molecules.\n\nMade for ICS3U culminating with Colin", ["Java", "HSA"], "", "download"),
+    new project("Java Syntax Highlighter", "assets/java.png", "This is a Java syntax highlighter made in JavaScript, designed to be used for code blocks on websites. The syntax.css file allows you to modify the palette to your own liking.\n\nEvery code block on this website utlises this syntax highlighter to do the highlighting.", ["JavaScript"], "", "download")
+]
 
 window.OOP_Basic = [
     // https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP

@@ -137,3 +137,47 @@ body {
     background-color: black;
     opacity: 0.5;
 }
+
+#modal-title {
+    font-size: 2rem;
+    color: var(--white);
+    text-align: center;
+    margin-top: 1rem;
+    user-select: none;
+}
+
+#modal-content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#modal-img {
+	object-fit: scale-down;
+	width: 25vw;
+	margin: 0 1rem;
+	height: 100%;
+}
+
+#modal-text {
+    color: var(--white);
+    font-size: 1.15rem;
+    margin: 0 1rem; 
+}
+
+#modal-about {
+    margin-top: 0;
+}
+
+#modal-close {
+    position: absolute;
+    margin: 1rem;
+    top: 0;
+    right: 0;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+#modal-view {
+    cursor: pointer;
+}
