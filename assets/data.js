@@ -983,8 +983,37 @@ window.Sorting = [
     new item("subtitle", "Common Mistakes"),
     new item("body", "A common mistake while "),
     new item("subtitle", "Project Demo"),
-    new item("body", ""),
-    new item("code", ``, "")
+    new item("body", "One assignment that utlised a sorting algorithm was the sorting algorithm, where we had to sort a bunch of countries by their name or by their population. After we sorted it, we would then output it to a file. In this assignment, we utlised insertion sort (a sorting algorithm not covered above)."),
+    new item("code", `public class SortingCountries {
+        // Just the sorting method
+        public void sortByCountryPopulations() {
+            // Insertion sort 
+            // Loops through all the country names starting from the second element
+            for(int i = 1; i < countryNames.size(); i++) {
+                // Get the name and population of the country
+                String name = countryNames.get(i);
+                long population = countryPopulations.get(i);
+                // Loops from the current index to the first index
+                for(int j = i; j >= 0; --j) {
+                    // If the index is not 0 and if the population at index j - 1
+                    // is less than the current population
+                    if(j > 0 && countryPopulations.get(j - 1) < population) {
+                        // Set j to be the country and population at index j - 1
+                        countryNames.set(j, countryNames.get(j - 1));
+                        countryPopulations.set(j, countryPopulations.get(j - 1));
+                    // Else we are now looking at the first element or the current population 
+                    // is less than the population at index j - 1 
+                    } else {
+                        // Set j to be the country and population of index i (Current country data)
+                        countryNames.set(j, name);
+                        countryPopulations.set(j, population);
+                        // Break out of the loop
+                        break;
+                    }
+                }
+            }
+        }
+    }`, "SortingCountries.java")
 ]
 
 window.Recursion = [
@@ -1026,4 +1055,9 @@ window.Recursion = [
             System.out.println("Element 6 found at position: " + binarySearch(arr, 6, 0, arr.length-1));
         }
     }`, "BinarySearch.java"),
+    new item("subtitle", "Common Mistake"), 
+    new item("body", "A very common mistake when using recurison is writing a poor base case that doesn't apply to all intended cases. This will cause a stack overflow to happen as some data may never enter the base case. Another common mistake for recursion is using it for the wrong purpose. For example, using recursion on very large data may not be the smartest idea as it may recursively call itself so many times that it throws a stack overflow anyways. Thus, the programmer must choose very carefully when doing recursion."),
+    new item("subtitle", "Project Demo"), 
+    new item("body", "One "),
+    new item("code", ``, ""),
 ]
