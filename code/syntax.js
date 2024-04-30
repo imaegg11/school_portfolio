@@ -11,7 +11,7 @@ let find_data_types = (text) => {
 }
 
 let parseToken = (token, isFunction, data_types, isVariable) => {
-    if (keywords.includes(token)) {
+    if (keywords.includes(token) && !data_types.includes(token)) {
         return "<span class='keyword'>" + token + "</span>";
     } else if (token.substring(0, 2) == "//") {
         return "<span class='comment'>" + token + "</span>";

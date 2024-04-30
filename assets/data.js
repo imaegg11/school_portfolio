@@ -316,6 +316,138 @@ window.OOP_Advanced = [
         }
     }
     `, "Main.java"),
+    new item("subtitle", "Common Mistakes"), 
+    new item("body", "Some common mistakes include whilst upcasting is done automatically by Java, downcasting is not. Therefore, whenever you need to cast it to a child, you must specifiy which child class it should be casted into. This is to prevent a Dog object from accidently being casting into its sibling, a Cat class. Another common mistake is that just because a method has a different return type doesn't mean it has been method overloaded. Two methods with different return types are treated to be the same as Java cannot predict which one the programmer wants."),
+    new item("subtitle", "Project Demo"), 
+    new item("body", "One project that made use of inheritance was the fantasical invention assignment. In this assignment, we had to come up with two inventions. The first needed to be a more general or vague invention and then the second would be one that was more specific than the first. This meant that during coding, the first invention would be the parent and the second would be the child, as the second would inherient some features from the first as they are closely related."), 
+    new item("body", "Part of the parent class"),
+    new item("code", `// Names: Alex Yan & Colin Cai
+    // Date: 02/20/2024
+    // Teacher: Ms. Krasteva
+    // Description: This class is to represent an invention that allows you to make a 
+    //              save file of a certain part of your body and in the future, restore 
+    //              the body part using the save file
+    
+    public class OrganQuickSave {
+    
+        private double costOfRestore;
+        private int timesOfUses;
+        private String organName;
+        private double overallCondition;
+        private double weight;
+        private String[] diseasesPresent;
+        
+    
+        // Default constructor initlizing the class to that of a brain
+        public OrganQuickSave() {
+            this.costOfRestore = 100.0;
+            this.timesOfUses = 0;
+            this.organName = "Brain";
+            this.overallCondition = 100.0;
+            this.weight = 1.5;
+            this.diseasesPresent = new String[] {};
+        }
+            
+        // Returns cost of restore
+        public double getCost() {
+            return costOfRestore;
+        }
+        
+        // Updates/Sets the new cost for a restore 
+        public void setCost(double cost) {
+            costOfRestore = cost;
+        }
+     
+        // toString method to print out all the details of the save
+        public String toString() {
+            String output =  "Name: " + organName + "\\n" +
+                             "Cost Of Usage: $" + costOfRestore + "\\n" +
+                             "Number Of Times Used: " + timesOfUses + "\\n" +
+                             "Condition Of Save: " + overallCondition + "%\\n" +
+                             "Weight Of Organ: " + weight + "kg\\n" +
+                             "Diseases Present: ";
+    
+            for (int i = 0; i < diseasesPresent.length; i++) {
+                output += "\\n\\t" + diseasesPresent[i];
+            }
+    
+            if (diseasesPresent.length == 0) {
+                output += "None";
+            }
+    
+            return output;
+        }
+    }
+    `, "OrganQuickSave.java"),
+    new item("body", "Part of the child class"),
+    new item("code", `// Names: Alex Yan & Colin Cai
+    // Date: 02/20/2024
+    // Teacher: Ms. Krasteva
+    // Description: Extension of the general organ quick 
+    //              save class to be more specific towards the brain
+    
+    public class BrainQuickSave extends OrganQuickSave { // Inherits from OrganQuickSame
+    
+        private String[] memories; 
+        private String[] mentalHealth;
+        private double numOfNeurons;
+        private double treatmentCost;
+    
+        // Default constructor
+        public BrainQuickSave() {
+            super(); // Calling super class constructor
+            this.memories = new String [] {};
+            this.mentalHealth = new String[] {};
+            this.numOfNeurons = 86000000000.0;
+            this.treatmentCost = 100.0;
+        }
+    
+        // Update memories (It's own methods)
+        public void addMemories(String[] updatedMemories) {
+            String[] newMemories = new String[updatedMemories.length + memories.length];
+            for (int i = 0; i < memories.length; i++) {
+                newMemories[i] = memories[i];
+            }
+            for (int i = memories.length; i < newMemories.length; i++) {
+                newMemories[i] = updatedMemories[i-memories.length];
+            }
+            memories = new String[newMemories.length];
+            for (int i = 0; i < newMemories.length; i++) {
+                memories[i] = newMemories[i];
+            }
+        }
+    
+        // Method overriding
+        // toString method to print out all the details of the save
+        public String toString() {
+            String output =  super.toString() + 
+                             "\\nNeurons: " + (long) numOfNeurons + "\\n" +
+                             "Mental Treatment Cost: $" + treatmentCost + "\\n";
+    
+            output += "Memories: ";
+    
+            for (int i = 0; i < memories.length; i++) {
+                output += "\\n\\t" + memories[i];
+            }
+    
+            if (memories.length == 0) {
+                output += "None";
+            }
+    
+            output += "\\nMental Health: ";
+    
+            for (int i = 0; i < mentalHealth.length; i++) {
+                output += "\\n\\t" + mentalHealth[i];
+            }
+    
+            if (mentalHealth.length == 0) {
+                output += "Normal Mental Health";
+            }
+    
+            return output;
+       }
+    
+    }`, "BrainQuickSave.java")
 ]
 
 window.Arrays = [
@@ -395,7 +527,88 @@ window.Arrays = [
             System.out.println("Element at index 0, 0: " + int2DArray[0][0]);
         }
     }
-    `, "Array.java")
+    `, "Array.java"),
+    new item("subtitle", "Common Mistakes"),
+    new item("body", "One common mistake is that when accessing the length of array, it is not length() as a method but length. This is because length is not a method but rather an attributes. On top of that, the length of an array is how humans normally count, starting from zero. However, arrays in code actually start from 0, meaning the length of the array is not the last element"),
+    new item("subtitle", "Project Demo"),
+    new item("body", "One assignment that used arrays was the assignment, I rate myself. In this assignment, we compare ourselves to other people based on five different attributes about ourselves. These attributes were stored in an array, providing a quick access to all of the attributes."),
+    new item("code", `// Name: Alex Yan & Colin Cai
+    // Teacher: Ms. Krasteva
+    // Date: 02/26/2024
+    // Description: This code compares people on how good they are at progarmming
+    
+    import java.util.*;
+    
+    public class Rating {
+    
+        // Variables (Arrays to store each person's rating)
+        private String[] names;
+        private int[] cccSeniorScore;
+        private int[] dmojTotalPoints;
+        private int[] dmojContestRating;
+        private double[] icsGrade;
+        private int[] leetcodeProblems;
+    
+        // Constructor
+        public Rating(String[] n, int[] c, int[] dTP, int[] dCR, double[] grade, int[] leetcode) {
+            this.names = n;
+            this.cccSeniorScore = c;
+            this.dmojTotalPoints = dTP;
+            this.dmojContestRating = dCR;
+            this.icsGrade = grade;
+            this.leetcodeProblems = leetcode;
+        }
+    
+        // Returns a string containing the best programming based on a certain metric
+        public String getBest(int stat) {
+            // Index of currently best programmer
+            int bestIndex = 0;
+            // Loop through all programmers
+            for (int i = 1; i < names.length; i++) { // Simple for loop to loop over the array
+                // Based on which number, check corresponding metric (Accessing the array)
+                switch (stat) {
+                    case 1:
+                        if (cccSeniorScore[i] > cccSeniorScore[bestIndex]) bestIndex = i;
+                        break;
+                    case 2:
+                        if (dmojTotalPoints[i] > dmojTotalPoints[bestIndex]) bestIndex = i;
+                        break;
+                    case 3:
+                        if (dmojContestRating[i] > dmojContestRating[bestIndex]) bestIndex = i;
+                        break;
+                    case 4:
+                        if (icsGrade[i] > icsGrade[bestIndex]) bestIndex = i;
+                        break;
+                    case 5:
+                        if (leetcodeProblems[i] > leetcodeProblems[bestIndex]) bestIndex = i; 
+                        break;
+                    case 6: 
+                        if(calculateRank(i) > calculateRank(bestIndex)) bestIndex = i;
+                        break;
+                }
+            }
+    
+            // Returns all the information about the person
+            return "Name: " + names[bestIndex] + "\\n" +
+                   "CCC Senior Score: " + cccSeniorScore[bestIndex] + "\\n" +
+                   "DMOJ Total Points: " + dmojTotalPoints[bestIndex] + "\\n" +
+                   "DMOJ Contest Rating: " + dmojContestRating[bestIndex] + "\\n" +
+                   "ICS Grade: " + icsGrade[bestIndex] + "\\n" + 
+                   "Leetcode Problems Solved: " + leetcodeProblems[bestIndex];
+        }
+    
+        public static void main(String[] args) {
+            Rating r = new Rating(
+                new String[] {"Alex", "Bob", "Colin", "Dora", "Eve"},
+                new int[] {34, 12, 60, 32, 45},
+                new int[] {201, 103, 409, 112, 304},
+                new int[] {0, 1032, 1274, 1023, 2031},
+                new double[] {99.3, 89.4, 99.5, 96.5, 90.4},
+                new int[] {44, 0, 84, 32, 10}
+            );
+        }
+    
+    }`, "Rating.java")
 ]
 
 window.Arraylists = [
@@ -438,7 +651,86 @@ window.Arraylists = [
             
         }
     }
-    `, "ArrayLists.java")
+    `, "ArrayLists.java"),
+    new item("subtitle", "Common Mistakes"),
+    new item("body", "Some common mistakes while using arraylists is that they are not arrays and you cannot interact with them like arrays. Square brackets don't work and .length doesn't either! They have their own seperate methods to interact with arraylist. Instead of square brackets to get an element, use the method .get(). Instead of using .length, use the method .size(). The same method that might work with arrays won't necessarily work with arraylist. "),
+    new item("subtitle", "Project Demo"),
+    new item("body", "One project that used arraylists was an assignment called arraylist assignment (Who would have guessed!). In this assignment, we were given a bunch of tasks to complete using array lists. One of them was to "),
+    new item("code", `import java.util.ArrayList;
+
+    public class AIPoem {
+        // AI was used for generating this poem.
+        private String poem =
+                "In the dark abyss of Java's reign,\\n" +
+                "Where Ready to Program inflicts its pain.\\n" +
+                "A Grade 10 student, burdened with dread,\\n" +
+                "In its clutches, their hopes lie dead.\\n" +
+                "\\n" +
+                "Oh cursed IDE of ancient lore,\\n" +
+                "Your crashes leave my spirit sore.\\n" +
+                "Java 1.4, a relic of old,\\n" +
+                "In its grip, my struggles unfold.\\n" +
+                "\\n" +
+                "Lines of code, a tangled dance,\\n" +
+                "Within Ready to Program's trance.\\n" +
+                "Performance lags, a sluggish stride,\\n" +
+                "As I battle against the tide.\\n" +
+                "\\n" +
+                "I summon forth powers untold,\\n" +
+                "To break free from this stronghold.\\n" +
+                "But Ready to Program, it sneers and mocks,\\n" +
+                "As I stumble over syntax blocks.\\n" +
+                "\\n" +
+                "Oh Java spirits, hear my plea,\\n" +
+                "From this torment, set me free.\\n" +
+                "For in the shadows of obsolete lore,\\n" +
+                "I yearn for an escape forevermore.\\n" +
+                "\\n" +
+                "Yet until then, I chant and groan,\\n" +
+                "In the clutches of code, I'm alone.\\n" +
+                "A captive to Ready to Program's plight,\\n" +
+                "In Grade 10's relentless night.";
+        private String newPoem;
+    
+        // This method generates the poems.
+        private void generatePoem(){
+            // Using arraylists to store the poem!
+            ArrayList<String> words = new ArrayList<String>();
+            for(String word: poem.split(" ")) {
+                words.add(word);
+            }
+            // Shuffle the ArrayList
+            // We use a Fisher-Yates shuffle
+            // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+            for(int i = 1; i < words.size(); i++) {
+                int j = (int) (Math.random() * (i + 1));
+                String t = words.get(j);
+                words.set(j, words.get(i));
+                words.set(i, t);
+            }
+            newPoem = "";
+            // Looping over the arraylist! 
+            for(String word: words) {
+                newPoem += word + " ";
+            }
+        }
+    
+        // This method prints the poems.
+        private void printPoems(){
+            System.out.println("##### Original Poem #####");
+            System.out.println(poem);
+            System.out.println();
+            System.out.println("####### New Poem ########");
+            System.out.println(newPoem);
+            System.out.println();
+        }
+    
+        public static void main(String[] args) {
+            AIPoem aiPoem = new AIPoem();
+            aiPoem.generatePoem();
+            aiPoem.printPoems();
+        }
+    }`, "")
 ]
 
 window.BigO = [
@@ -557,7 +849,9 @@ window.Searching = [
             int[] arr = {2, 2, 3, 3, 4, 4, 4, 5, 5, 6, 7, 8};
             System.out.println("Element 6 found at position: " + binarySearch(arr, 6));
         }
-    }`, "BinarySearch.java")
+    }`, "BinarySearch.java"),
+    new item("subtitle", "Common Mistakes"),
+    new item("body", "One common mistake in binary search in using it on an unsorted array. Binary search relies on a sorted array and when it is fed an unsorted array, it no longer works. Therefore, programmers must keep in mind to sort the array before performing binary search or just using a different search algorithm. ")
 ]
 
 window.Sorting = [
@@ -685,7 +979,12 @@ window.Sorting = [
             }
         }
     }
-    `, "MergeSort.java")
+    `, "MergeSort.java"),
+    new item("subtitle", "Common Mistakes"),
+    new item("body", "A common mistake while "),
+    new item("subtitle", "Project Demo"),
+    new item("body", ""),
+    new item("code", ``, "")
 ]
 
 window.Recursion = [
