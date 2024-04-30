@@ -41,7 +41,7 @@ let parseText = (text) => {
             let tokenLength = currentToken.length;
             if ((currentToken.substring(0, 2) == "//" && char != "\n") || (char == "/" && currentToken == "" && (i+1 < text.length) && text[i+1] == "/") || (char == "/" && currentToken == "/")) {
                 currentToken += char;
-            } else if (Array.from("\"'").includes(currentToken[0]) && (currentToken[tokenLength - 1] != currentToken[0] || currentToken[tokenLength - 2] == "\\")) {
+            } else if (Array.from("\"'").includes(currentToken[0]) && (currentToken.length == 1 || (currentToken[tokenLength - 1] != currentToken[0] || currentToken[tokenLength - 2] == "\\"))) {
                 currentToken += char;
             } else if (char == "." && !isNaN(currentToken)) {
                 currentToken += char;

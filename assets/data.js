@@ -39,7 +39,7 @@ window.OOP_Basic = [
     new item("body", "Object oriented programming (OOP) is a programming model that utilizes objects and classes. Objects are data fields with unique attributes and behavior. An example of an object could be a table and the attributes could be thought as it's color or the material it's made of."),
     new item("subtitle", "Java Objects and Classes"),
     new item("body", "In Java, objects are created from classes, which are like blueprints for the object. Within the classes, there are then attributes and methods. These attributes hold the state of an object. Going back to the table as an object example, the attributes inside of the class could contain the information about the color or the materials. Methods represents an object's behaviors, and can be used to modify the attributes or perform some other action. Finally, in Java, an object is an instance of the class, with it's own data values. For example, an object could be a table class with the color set as red and the material be plastic."),
-    new item("body", "To create an object in Java, we will invoke the constructor of a class. The constructor of a class is what creates the object. When writing a constructor, it has no return type and the name is the name of the class. Java allows overloading constructors, meaning we can constructors with different arguments. This allows us to set up the basics for the class, setting values for attributes and more. "),
+    new item("body", "To create an object in Java, we will invoke the constructor of a class. The constructor of a class is what creates the object. When writing a constructor, it has no return type and the name is the name of the class. Java allows overloading constructors, meaning we can constructors with different arguments. This allows us to set up the basics for the class, setting values for attributes and more. If no constructor is present, Java will assign a zero parameter constructor for the class. "),
     new item("body", "The code below demonstrates the basics of a class and object. However in Java, there are more to attributes and methods than we have just covered."),
     new item("code", 
     `// The Class: The blueprint for a table
@@ -115,10 +115,68 @@ window.OOP_Basic = [
     }`, "Table.java"),
     new item("subtitle", "Access"),
     new item("body", "In Java, there are different levels of access an attribute or methods can have. A public access is one where anything can access it. A public method can be called by anything and a public attribute can be modified by anything. A private access means that only the object itself and other objects of the same class can access it. This is where set and get methods come in, as they provide a way for other objects to modify or read these private attributes. Finally, there is protected access. This allows for any class that is the current class or subclasses to access it. Different attributes and methods will have different levels of access to them, depending on each of their uses. "),
+    new item("subtitle", "Common Mistakes"),
+    new item("body", "One common mistake that people can make when dealing with objects in Java is do not think that assigning a new variable to the a variable that holds an object will create a new object. This does not create a new object, but rather creates a reference to the memory of the original object. This means that if we modify the new variable's object, we also modify the original variable's object."),
+    new item("code", `public class Main {
+        public int x = 3;
+        
+        public static void main(String[] args) {
+            Main m1 = new Main();
+            Main m2 = m1; // This doesn't create a new object 
+            
+            m2.x = 5;
+            // It modifies both because m2 points towards the same object as m1
+            System.out.println("m1: " + m1.x);
+            System.out.println("m2: " + m2.x);
+            // Same object!!
+            System.out.println("m1: " + m1 + "\\nm2: " + m2);
+        }
+    }
+    `, "Main.java"),
+    new item("subtitle", "Project Demo"),
+    new item("body", "One project that utlises the concept of OOP was the creating software assignment, where we were given 4 classes to comment. One of them was a student class, which was then used tested out in a tester class. "),
+    new item("code", `// Name: Alex Yan
+    // Teacher: Ms. Krasteva
+    // Date: 20/09/2024
+    // Description: 
+    
+    public class Student{
+        // Usage of attributes
+        public String name;
+        public int mark1;
+        public int mark2;
+        public double average;
+    
+        // The constructor to create the class
+        public Student(String n){
+            name = n;
+            mark1 = 0;
+            mark2 = 0;
+            average = 0.0;
+        }
+    
+        // Methods of the classes
+
+        public void setMarks(int x, int y){
+            mark1 = x;
+            mark2 = y;
+        }
+    
+        public void calcAverage(){
+            average=(mark1 + mark2)/2;
+        }
+    
+        public String message( ){
+            return name + ", you got an " + average;
+        }
+    }`, "Student.java"), 
+    new item("body", "We also had the tester class, which created Student objects, which were then used to test the different methods.")
+    
 ]
 
 window.OOP_Advanced = [
     // https://www.geeksforgeeks.org/inheritance-in-java/
+    // https://www.geeksforgeeks.org/polymorphism-in-java/ 
     new item("title", "Object Oriented Programming - Advanced"),
     new item("subtitle", "Inheritance and Polymorphism"), 
     new item("body", "Classes can have additional functionality through inheritance and polymorphism. These are the key features that object oriented programming have. Inheritance allows classes inherit from different classes while polymorphism allows for classes to have many different \"forms\"."),
@@ -150,7 +208,114 @@ window.OOP_Advanced = [
         System.out.println("Dust amount after cleaning: " + t.getDustAmount());
     }`, "Table.java"),
     new item("subtitle", "Accessing The Parent Class"),
-    new item("body", "The subclass can also access the superclass through the keyword super. For example, super() will access the constructor of the super class.")
+    new item("body", "The subclass can also access the superclass through the keyword super. For example, super() will access the constructor of the super class. Of course, Java automatically calls this at the start of the constructors in child class. However, if the constructor of the parent is manually invoked, it must be at the very top of the child's constructor. super can also access other things, such as methods or attributes, as long as the child has access to them."),
+    new item("subtitle", "Polymorphism"),
+    new item("body", "Polymorphism has two neat features, known as method overloading and method overriding. Method overloading is when a method has the same name but different parameters. On the other hand, method overriding is when a method in the parent class is overriden by another method of the same name and parameter later down in the heirachy."),
+    new item("subtitle", "Method Overloading"),
+    new item("body", "When method overloading, it requires the method to have the same name but different parameters. The different parameters could be a different number of parameters or parameters of a different type. This allows the Java complier to figure out which method is being called, as the parameters would be different. This allows for methods that do similar tasks to have the same name, for ease for the programmer."),
+    new item("code", `public class Overloading {
+    
+        public void task(int x) {
+            System.out.println("This performs a task to output an integer x!");
+            System.out.println(x);
+        }
+        
+        // Overloading with a different parameter type (Double instead of integer!)
+        public void task(double x) {
+            System.out.println("This performs a task to output a double x!");
+            System.out.println(x);
+        }
+        
+        public static void main(String[] args) {
+            Overloading o = new Overloading();
+            o.task(10); // Calling the method with integer parameter
+            o.task(3.14); // Calling the method with double parameter
+        }
+    }
+    `, "Overloading.java"),
+    new item("subtitle", "Method Overriding"),
+    new item("body", "Method overriding is done when a child class (or any class in the heirachy) has a method of the same name and parameters as the one in the parenet. However, the body of the child class' method might be different than the parent, to suite the needs of the child."),
+    new item("code", `public class Parent {
+        public void task() {
+            System.out.println("Doing something vague and related to the parent");
+        }
+    }`, "Parent.java"),
+    new item("code", `public class Overriding extends Parent {
+    
+        // Overrides the parent's task method
+        public void task() {
+            System.out.println("Doing something more specific and related to the child");
+        }
+        
+        public static void main(String[] args) {
+            Main o = new Main();
+            o.task(); // It calls the child's method!
+        }
+    }`, "Overriding.java"),
+    new item("subtitle", "Class Casting"),
+    new item("body", "Class casting is where the true power of method overriding comes in. However, unlike primitive data types, the obejct doesn't change types. If we have a Dog object and we cast it into a Animal class, the Dog object doesn't suddenly turn itself into an Animal object. Rather, the Dog object now gets treated as if it were a Animal object and looses access to all of the methods and attributes specific the Dog class. Upcasting is when a child gets casted to a parent while downcasting is when a parent gets casted into a child. When upcasting, Java will automatically do it for the programmer. However, downcasting requires the programmer to manually state which child, as Cat object cannot be casting into a sibling class, such as a Dog. When a child is upcasted into a parent, it looses access to the child class' specific attributes and variables. However, if a method in the child is overriding a parent method whilst being upcasted, when the method is called, it calls the child's rather than the parent."),
+    new item("code", `public class Parent {
+        public void task() {
+            System.out.println("Doing something vague and related to the parent class");
+        }
+    }`, "Parent.java"),
+    new item("code", `public class ClassCasting extends Parent {
+    
+        // Overrides the parent's task method
+        public void task() {
+            System.out.println("Doing something more specific and related to the child class");
+        }
+        
+        public void otherTask() {
+            System.out.println("Doing something, in the child class");
+        }
+        
+        public static void main(String[] args) {
+            Parent p = new ClassCasting(); // Child class is upcasted to parent automatically by Java
+            p.task(); // Calls the child class' method!!
+            // p.otherTask(); // Throws an error because otherTask doesn't exist in Parent 
+            // Uncomment to see
+        }
+    }
+    `, "ClassCasting.java"),
+    new item("subtitle", "Abstract Classes and Interfaces"),
+    new item("body", "Sometimes, programmers want classes that have some or all of its methods to be abstracted. An abstracted method is one that specially designed to be overrided and in the code, only provides the name, return type and parameters. It is created with the key word abstract and has no body code. An abstract class is one where one or more of its methods is abstracted. However, it can also contain non-abstracted methods. On the other hand, interfaces only contain abstracted methods. They cannot contain any other non-abstracted methods and only have final variables. Interfaces are created with the keyword interface while abstract classes are created with the keyword, abstract class. The interfaces implemented while abstracted classes are extended."),
+    new item("code", `public abstract class AbstractTest {
+        public abstract void task(); // An abstract method (No Body)
+    
+        public void nonAbstract() {
+            System.out.println("I can also be a non abstract method as well!!");
+        }
+    }`, "AbstractTest.java"),
+    new item("code", `public interface InterfaceTest {
+        int x = 3; // Can drop the final and static 
+        
+        // Can drop the abstract as it must be abstract
+        void otherTask(); 
+    }`, "InterfaceTest.java"),
+    new item("code", `public class Main extends AbstractTest implements InterfaceTest {
+    
+        // Overrides the AbstractTest's abstract task method
+        public void task() {
+            System.out.println("This method is doing something!");
+        }
+        
+        // Overrides the InterfaceTest's abstract task method
+        public void otherTask() {
+            System.out.println("This method is doing something else!");
+            System.out.println("Hey look, the final variable from InterfaceTest!");
+            System.out.println(x);
+        }
+        
+        
+        public static void main(String[] args) {
+            Main m = new Main();
+            m.task(); // Abstract's abstract method being overriden 
+            m.nonAbstract(); // A non-abstract method from the abstract class 
+            m.otherTask(); // Interface's abstract method being overriden
+        }
+    }
+    `, "Main.java"),
 ]
 
 window.Arrays = [
