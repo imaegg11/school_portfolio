@@ -29,18 +29,14 @@ for (let child of document.getElementById("content").children) {
         let made_with = grandchildren[1].children[2];
         made_with.inenrHTML = "";
         made_with.replaceChildren();
-        console.log(made_with);
         for (let tech of project_info.tech) {
             let e = document.createElement("li");
             e.innerText = tech;
             made_with.appendChild(e);
         } 
 
-        if (project_info.download_type == "download") {
-            grandchildren[1].children[3].innerText = "Download";
-        } else {
-            grandchildren[1].children[3].innerText = "View on Github";
-        }
+        grandchildren[1].children[3].href = project_info.download;
+        console.log(grandchildren[1].children[3])
         // document.body.style.overflow = "hidden";
     })
 }

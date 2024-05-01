@@ -10,10 +10,10 @@ let find_data_types = (text) => {
     return extended_classes.concat(created_classes, variable_data_types, implemented_interfaces, created_interfaces);
 }
 
-let parseToken = (token, isFunction, data_types, isVariable) => {
+let parseToken = (token, isFunction, data_types) => {
     if (keywords.includes(token) && !data_types.includes(token)) {
         return "<span class='keyword'>" + token + "</span>";
-    } else if (token.substring(0, 2) == "//") {
+    } else if (token.substring(0, 2) == "//" || token.substring(0, 2) == "/*") {
         return "<span class='comment'>" + token + "</span>";
     } else if (!isNaN(token) && token != "") {
         return "<span class='syntax-number'>" + token + "</span>";
@@ -23,8 +23,6 @@ let parseToken = (token, isFunction, data_types, isVariable) => {
         return "<span class='dataType'>" + token + "</span>";
     } else if (isFunction) {
         return "<span class='function'>" + token + "</span>";
-    } else if (isVariable) {
-        return "<span class='variable'>" + token + "</span>";
     } else {
         return token;
     }
@@ -37,11 +35,13 @@ let parseText = (text) => {
     let dataTypes = find_data_types(text).concat(global_data_types);
     for (let i = 0; i < text.length; i++) {
         let char = text[i];
+        let tokenLength = currentToken.length;
         if (seperators.includes(char)) {
-            let tokenLength = currentToken.length;
             if ((currentToken.substring(0, 2) == "//" && char != "\n") || (char == "/" && currentToken == "" && (i+1 < text.length) && text[i+1] == "/") || (char == "/" && currentToken == "/")) {
                 currentToken += char;
-            } else if (Array.from("\"'").includes(currentToken[0]) && (currentToken.length == 1 || (currentToken[tokenLength - 1] != currentToken[0] || currentToken[tokenLength - 2] == "\\"))) {
+            } else if ((currentToken.substring(0, 2) == "/*" && tokenLength >= 2 && currentToken.substring(tokenLength - 2, tokenLength) != "*/") || (char == "/" && currentToken == "" && (i+1 < text.length) && text[i+1] == "*") || (char == "*" && currentToken == "/")) {
+                currentToken += char;
+            } else if (Array.from("\"'").includes(currentToken[0]) && (tokenLength == 1 || (currentToken[tokenLength - 1] != currentToken[0] || currentToken[tokenLength - 2] == "\\"))) {
                 currentToken += char;
             } else if (char == "." && !isNaN(currentToken)) {
                 currentToken += char;
@@ -56,11 +56,6 @@ let parseText = (text) => {
                     currentToken = "";
                 } else {
                     i -= capture.length;
-                    // GG I made an accidental variable detector lmfao that only detects 
-                    // it if its being declared, or being called but not when there's a method
-                    // being called??? I have no idea how this works (I think it's something
-                    // to do with highlighting everyhting else and not actually a variable
-                    // detector)
                     highlightedText += parseToken(currentToken, false, dataTypes) + char;
                     currentToken = "";
                 }

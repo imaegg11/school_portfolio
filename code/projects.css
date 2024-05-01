@@ -91,14 +91,19 @@ body {
     grid-column: span 2;
 }
 
+.span-3 {
+    grid-column: span 3;
+}
+
 .span-1 {
     display: grid;
-    grid-template-rows: 1.5fr 1fr;
+    /* grid-template-rows: 1.5fr 1fr; */
 }
 
 .span-1 > .project-img {
-    width: min(8.75rem, 35%);
-    margin: auto;
+    height: 6rem;
+    object-fit: scale-down;
+    margin: 1rem auto;
 }
 
 .span-1 .project-title {
@@ -107,6 +112,7 @@ body {
 
 .span-1 .project-text {
     margin-top: 0;
+    overflow: hidden;
 }
 
 .project-about {
@@ -116,7 +122,7 @@ body {
 
 .project-img {
     width: max(15rem, 10%);
-    margin: auto 0 auto 1rem;
+    margin: auto 1rem;
     margin-left: 1rem;
 }
 
@@ -179,5 +185,20 @@ body {
 }
 
 #modal-view {
+    all: unset; 
     cursor: pointer;
+    user-select: none;
+    width: min-content;
+    display: flex;
+    align-items: center;
+}
+
+#modal-view > svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+#modal-view > p {
+    width: min-content;
+    margin-right: 0.5rem;
 }
