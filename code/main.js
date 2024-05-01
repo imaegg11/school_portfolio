@@ -1,9 +1,5 @@
 const titles = ["student", "programmer", "problem solver"];
 
-/*
-https://www.w3schools.com/jsref/met_win_requestanimationframe.asp
-*/
-
 let index = 0;
 
 let typing = (n) => {

@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/Montserrat-Regular.ttf') format("truetype");
+}
+
+body {
+    margin: 0;
+    background-color: var(--black);
+    font-family: "Montserrat";
+}
+
+#title {
+    margin-top: 4rem;
+    font-size: 3rem;
+    color: var(--white);
+    text-align: center;
+}
+
+.subtitle {
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.citation {
+    color: var(--white);
+    font-size: 1.5rem;
+}
+
+#content {
+    margin: 3rem auto;
+    width: 90%;
+}

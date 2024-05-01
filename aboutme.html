@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>About Me</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="description" content="" />
+        <!-- <link rel="icon" href="favicon.png"> -->
+        <link rel='stylesheet' href="code/nav.css">
+        <link rel='stylesheet' href="code/aboutme.css">
+        <script src="assets/data.js"></script>
+    </head>
+    <body>
+        <div id="page-container" class="hide">
+            <div id="nav">
+                <p id="home" onclick="goTo('index.html')">Home</p>
+                <div id="darken" onclick="close_ham()"></div>
+                <div id="ham" onclick="toggle_ham()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="ham-content"></div>
+            </div>
+        <div id="content">
+            <img id="img" src="assets/alex.jpg"></img>
+            <div id="text">
+                <p id="title">About Me</p>
+                <p id="body">I'm Alex, a high school student currently attending William Lyon Mackenzie C.I., to hopefully pursue a future career in computer science. I'm self-taught programmer who mainly focuses on working with python. I've been slowly learning from the internet since the pandemic and finds the field of computer science very fascinating. 
+                <br><br>
+                In my free time when I am not programming, I enjoy watching videos on the internet, playing video games or just simply having fun. You will often find me texting friends on Discord or simply just laying down in bed.
+                <br><br>
+                Accomplishments (Things I'm Proud Of)
+                <ul id="list">
+                    <li>Junior CCC completed in under an hour (75/75)</li>
+                    <li>Cayley Contest Honour Roll (144/150)</li>
+                    <li>Canadian Intermediate Mathematics Contest Honour Roll (50/60)</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+        <script src="code/nav.js"></script>
+        <noscript>
+            <p style="font-size: 4rem; width: 100vw; text-align: center; color: var(--white);">Turn on Javascript. Website will not function
+                otherwise.</p>
+        </noscript>
+    </body>
+</html>

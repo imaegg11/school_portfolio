@@ -114,7 +114,7 @@ let create_hamburger = (hamburger_content) => {
 
 let paths = ["nav-home"]
 const hamburger_content = {
-    "nav-home": [["About Me"], ["Projects", goTo, "projects.html"], ["Lessons", go_forward, "lessons"], ["Bibliography"]],
+    "nav-home": [["About Me", goTo, "aboutme.html"], ["Projects", goTo, "projects.html"], ["Lessons", go_forward, "lessons"], ["Bibliography", goTo, "bibliography.html"]],
     "nav-lessons": [["OOP Basics", goTo, "OOP_Basic.html"], ["OOP Advanced", goTo, "OOP_Advanced.html"], ["Arrays", goTo, "Arrays.html"], ["Arraylists", goTo, "Arraylists.html"], ["Big O Notation", goTo, "BigO.html"], ["Searching", goTo, "Searching.html"], ["Sorting", goTo, "Sorting.html"], ["Recursion", goTo, "Recursion.html"], ["Back"]]
 }
 

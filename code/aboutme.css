@@ -1,0 +1,58 @@
+:root {
+    --white: #d8dee9;
+    --black: #100f10;
+    --dark-grey: #201e21;
+    --light-blue: #57a0d9;
+    --blue: #1964c8;
+    --lighter-blue: #61afef;
+    --bright-blue: #51acff;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/Montserrat-Regular.ttf') format("truetype");
+}
+
+body {
+    margin: 0;
+    background-color: var(--black);
+    font-family: "Montserrat";
+}
+
+#title {
+    font-size: 2rem;
+    color: var(--white);
+    margin-top: 0;
+}
+
+#img {
+    height: min(70vh, 50vw);
+    margin: 1rem;
+    border-radius: 50%;
+}
+
+#content {
+    margin: auto;
+    margin-top: 6rem;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#text {
+    margin: 1rem;
+}
+
+#body {
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+#list {
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+#list > li {
+    margin: 0.5rem 0;
+}
