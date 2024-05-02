@@ -36,7 +36,12 @@ for (let child of document.getElementById("content").children) {
         } 
 
         grandchildren[1].children[3].href = project_info.download;
-        console.log(grandchildren[1].children[3])
+        if (project_info.download_type == "view") {
+            grandchildren[1].children[3].classList.add("hide");
+        } else {
+            grandchildren[1].children[3].classList.remove("hide");
+        }
+        // console.log(grandchildren[1].children[3])
         // document.body.style.overflow = "hidden";
     })
 }
